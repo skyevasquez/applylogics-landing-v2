@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ApplyLogics — We Build Digital Solutions</title>
+<meta name="description" content="ApplyLogics is a full-service technology company. Web development, AI business automation, hosting and technical infrastructure — engineered end to end." />
+<meta property="og:title" content="ApplyLogics — We Build Digital Solutions" />
+<meta property="og:description" content="End-to-end digital transformation for modern businesses. Web, AI, Cloud." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css?v=6" />
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-line"><span class="loader-prompt">user@applylogics:~$</span> <span id="loader-cmd"></span><span class="cursor-block"></span></div>
+    <div class="loader-bar"><div class="loader-bar-fill" id="loader-bar-fill"></div></div>
+    <div class="loader-pct mono" id="loader-pct">0%</div>
+  </div>
+</div>
+
+<!-- Scanlines overlay -->
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+<!-- Scroll progress -->
+<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+<!-- Nav -->
+<header class="nav" id="nav">
+  <a href="#hero" class="nav-logo mono" data-magnetic>
+    <span class="nav-logo-bracket">[</span>Apply<span class="accent">Logics</span><span class="nav-logo-bracket">]</span>
+  </a>
+  <nav class="nav-links" id="nav-links" aria-label="Primary">
+    <a href="#services" class="nav-link mono" data-magnetic><span class="nav-num">01</span>Services</a>
+    <a href="#solutions" class="nav-link mono" data-magnetic><span class="nav-num">02</span>Solutions</a>
+    <a href="#work" class="nav-link mono" data-magnetic><span class="nav-num">03</span>Results</a>
+    <a href="#contact" class="nav-cta mono" data-magnetic>Start a Project<span class="nav-cta-arrow">→</span></a>
+  </nav>
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <a href="#services" class="mobile-link"><span class="mono accent">01</span> Services</a>
+    <a href="#solutions" class="mobile-link"><span class="mono accent">02</span> Solutions</a>
+    <a href="#work" class="mobile-link"><span class="mono accent">03</span> Results</a>
+    <a href="#contact" class="mobile-link"><span class="mono accent">04</span> Contact</a>
+    <div class="mobile-menu-foot mono">
+      <a href="tel:3523251006">352-325-1006</a>
+      <a href="mailto:hello@applylogics.com">hello@applylogics.com</a>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="webgl" aria-hidden="true"></canvas>
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag mono" data-hero-fade>
+        <span class="tag-dot"></span>// Full-Service Technology Company
+      </div>
+      <h1 class="hero-title" aria-label="We build digital solutions.">
+        <span class="hero-line"><span class="hero-line-inner">We build</span></span>
+        <span class="hero-line"><span class="hero-line-inner accent-glow">digital</span></span>
+        <span class="hero-line"><span class="hero-line-inner"><em>solutions.</em></span></span>
+      </h1>
+      <p class="hero-sub" data-hero-fade>
+        End-to-end digital transformation for modern businesses —
+        from web development to AI automation, engineered to ship and built to last.
+      </p>
+      <div class="hero-actions" data-hero-fade>
+        <a href="contact.html" class="btn btn-primary mono" data-magnetic>Get Started <span class="btn-arrow">→</span></a>
+        <a href="#services" class="btn btn-ghost mono" data-magnetic>Explore Services</a>
+      </div>
+    </div>
+
+    <div class="hero-terminal mono" data-hero-fade aria-hidden="true">
+      <div class="term-head">
+        <span class="term-dot td-r"></span><span class="term-dot td-y"></span><span class="term-dot td-g"></span>
+        <span class="term-title">applylogics.sh</span>
+      </div>
+      <pre class="term-body"><code><span class="t-kw">const</span> solution = <span class="t-kw">await</span> applyLogics.<span class="t-fn">transform</span>({
+  business: <span class="t-str">"yours"</span>,
+  tech: [<span class="t-str">"AI"</span>, <span class="t-str">"Web"</span>, <span class="t-str">"Cloud"</span>],
+  result: <span class="t-str">"success"</span>
+});<span class="cursor-block"></span></code></pre>
+    </div>
+
+    <div class="hero-scroll mono" data-hero-fade>
+      <span class="hero-scroll-text">scroll to explore</span>
+      <span class="hero-scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track mono" id="marquee-track">
+      <span>WEB DEVELOPMENT ✦ AI AUTOMATION ✦ CLOUD INFRASTRUCTURE ✦ CUSTOM SOFTWARE ✦ HOSTING ✦ CONSULTING ✦&nbsp;</span>
+      <span>WEB DEVELOPMENT ✦ AI AUTOMATION ✦ CLOUD INFRASTRUCTURE ✦ CUSTOM SOFTWARE ✦ HOSTING ✦ CONSULTING ✦&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- EVOLVE -->
+  <section class="evolve" id="evolve">
+    <img src="assets/logo-mark.png" alt="ApplyLogics mark" class="evolve-logo" data-reveal width="56" height="56" />
+    <h2 class="evolve-title" data-split>Stay on the right side of history.</h2>
+    <a href="contact.html" class="btn btn-primary mono" data-magnetic data-reveal>Get Started <span class="btn-arrow">→</span></a>
+    <div class="evolve-media">
+      <video
+        id="evolve-video"
+        class="evolve-video"
+        src="assets/cavemen-loop.mp4"
+        poster="assets/cavemen-poster.jpg"
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-label="Cavemen gathered around a glowing laptop and tablet"
+      ></video>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" id="work">
+    <div class="section-head">
+      <span class="section-tag mono">// proven results</span>
+    </div>
+    <div class="stats-grid">
+      <div class="stat" data-reveal>
+        <div class="stat-num mono"><span class="counter" data-target="50">0</span><span class="accent">+</span></div>
+        <div class="stat-label mono">Projects Delivered</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat-num mono"><span class="counter" data-target="98">0</span><span class="accent">%</span></div>
+        <div class="stat-label mono">Client Satisfaction</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat-num mono"><span class="counter" data-target="24">0</span><span class="accent">/7</span></div>
+        <div class="stat-label mono">Support Available</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat-num mono"><span class="counter" data-target="300">0</span><span class="accent">%</span></div>
+        <div class="stat-label mono">Avg. Performance Gain</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-head">
+      <span class="section-tag mono" data-reveal>// our services</span>
+      <h2 class="section-title" data-split>Everything your stack needs. Nothing it doesn't.</h2>
+      <p class="section-sub" data-reveal>Comprehensive technology solutions tailored to your business.</p>
+    </div>
+
+    <div class="service-list">
+      <article class="service-row" data-reveal>
+        <span class="service-num mono">01</span>
+        <div class="service-main">
+          <h3 class="service-name">Web Design &amp; Development</h3>
+          <p class="service-desc">Modern, responsive websites focused on brand identity and user experience. Custom designs that convert visitors into customers.</p>
+        </div>
+        <span class="service-arrow mono" aria-hidden="true">↗</span>
+      </article>
+      <article class="service-row" data-reveal>
+        <span class="service-num mono">02</span>
+        <div class="service-main">
+          <h3 class="service-name">AI Business Automation</h3>
+          <p class="service-desc">Chatbots, agents, and smart workflows that streamline operations and cut manual processes down to zero.</p>
+        </div>
+        <span class="service-arrow mono" aria-hidden="true">↗</span>
+      </article>
+      <article class="service-row" data-reveal>
+        <span class="service-num mono">03</span>
+        <div class="service-main">
+          <h3 class="service-name">Hosting &amp; Server Setup</h3>
+          <p class="service-desc">Secure, reliable hosting with professional setup and ongoing management for optimal performance.</p>
+        </div>
+        <span class="service-arrow mono" aria-hidden="true">↗</span>
+      </article>
+      <article class="service-row" data-reveal>
+        <span class="service-num mono">04</span>
+        <div class="service-main">
+          <h3 class="service-name">Technology Consulting</h3>
+          <p class="service-desc">Strategic guidance on digital infrastructure, solution design, and technology planning for growth.</p>
+        </div>
+        <span class="service-arrow mono" aria-hidden="true">↗</span>
+      </article>
+      <article class="service-row" data-reveal>
+        <span class="service-num mono">05</span>
+        <div class="service-main">
+          <h3 class="service-name">Custom Development</h3>
+          <p class="service-desc">Custom apps, API integrations, and database design tailored to your exact requirements.</p>
+        </div>
+        <span class="service-arrow mono" aria-hidden="true">↗</span>
+      </article>
+      <article class="service-row" data-reveal>
+        <span class="service-num mono">06</span>
+        <div class="service-main">
+          <h3 class="service-name">Maintenance &amp; Support</h3>
+          <p class="service-desc">Updates, security patches, monitoring, and technical support that keeps everything running.</p>
+        </div>
+        <span class="service-arrow mono" aria-hidden="true">↗</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="solutions" id="solutions">
+    <div class="section-head">
+      <span class="section-tag mono" data-reveal>// comprehensive solutions</span>
+      <h2 class="section-title" data-split>From first commit to long-term partnership.</h2>
+    </div>
+    <div class="solutions-grid">
+      <a class="sol-card" href="contact.html?topic=digital-presence" data-reveal data-tilt>
+        <span class="sol-index mono">[ 0x01 ]</span>
+        <h3 class="sol-name">Digital Presence</h3>
+        <p class="sol-desc">Complete web presence — design, development, hosting, and maintenance for maximum impact.</p>
+        <span class="sol-link mono">deploy →</span>
+      </a>
+      <a class="sol-card" href="contact.html?topic=business-automation" data-reveal data-tilt>
+        <span class="sol-index mono">[ 0x02 ]</span>
+        <h3 class="sol-name">Business Automation</h3>
+        <p class="sol-desc">Smart automation tools and AI-powered systems to streamline workflows and reduce manual work.</p>
+        <span class="sol-link mono">deploy →</span>
+      </a>
+      <a class="sol-card" href="contact.html?topic=technical-infrastructure" data-reveal data-tilt>
+        <span class="sol-index mono">[ 0x03 ]</span>
+        <h3 class="sol-name">Technical Infrastructure</h3>
+        <p class="sol-desc">Robust server setup, secure hosting, and reliable infrastructure to support your operations.</p>
+        <span class="sol-link mono">deploy →</span>
+      </a>
+      <a class="sol-card" href="contact.html?topic=ongoing-partnership" data-reveal data-tilt>
+        <span class="sol-index mono">[ 0x04 ]</span>
+        <h3 class="sol-name">Ongoing Partnership</h3>
+        <p class="sol-desc">Long-term technology partnership with continuous support, updates, and strategic guidance.</p>
+        <span class="sol-link mono">deploy →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-head">
+      <span class="section-tag mono" data-reveal>// client_testimonials.log</span>
+      <h2 class="section-title" data-split>Signal, not noise.</h2>
+    </div>
+    <div class="testi-grid">
+      <figure class="testi-card" data-reveal>
+        <blockquote>"ApplyLogics transformed our digital presence completely. Beautiful, responsive website and hosting that has never let us down."</blockquote>
+        <figcaption class="mono"><span class="accent">$</span> Sarah Johnson — CEO, TechStart Solutions</figcaption>
+      </figure>
+      <figure class="testi-card" data-reveal>
+        <blockquote>"The chatbot handles 80% of our inquiries automatically, and the custom development work was flawless."</blockquote>
+        <figcaption class="mono"><span class="accent">$</span> Michael Chen — Ops Director, GrowthCorp</figcaption>
+      </figure>
+      <figure class="testi-card" data-reveal>
+        <blockquote>"They migrated our entire system to the cloud with zero downtime and improved performance by 300%."</blockquote>
+        <figcaption class="mono"><span class="accent">$</span> David Park — CTO, InnovateTech</figcaption>
+      </figure>
+      <figure class="testi-card" data-reveal>
+        <blockquote>"Their consulting helped us identify opportunities we never knew existed. ROI increased within months."</blockquote>
+        <figcaption class="mono"><span class="accent">$</span> Jennifer Martinez — Founder, ScaleUp Ventures</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="cta-inner">
+      <span class="section-tag mono" data-reveal>// ready when you are</span>
+      <h2 class="cta-title" data-split>Let's build what's next.</h2>
+      <p class="cta-sub" data-reveal>Tell us about your project. We'll respond within one business day.</p>
+      <div class="cta-actions" data-reveal>
+        <a href="contact.html" class="btn btn-primary btn-lg mono" data-magnetic>Start Your Project <span class="btn-arrow">→</span></a>
+        <a href="tel:3523251006" class="btn btn-ghost btn-lg mono" data-magnetic>352-325-1006</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="mono footer-logo">[Apply<span class="accent">Logics</span>]</span>
+      <p class="mono footer-tag">Full-Service Technology Company<br/>Gainesville, FL</p>
+    </div>
+    <div class="footer-col">
+      <h4 class="mono">// services</h4>
+      <a href="contact.html?topic=web-design">Web Design &amp; Development</a>
+      <a href="contact.html?topic=ai-automation">AI Business Automation</a>
+      <a href="contact.html?topic=hosting">Hosting &amp; Server Setup</a>
+      <a href="contact.html?topic=custom-dev">Custom Development</a>
+    </div>
+    <div class="footer-col">
+      <h4 class="mono">// solutions</h4>
+      <a href="contact.html?topic=digital-presence">Digital Presence</a>
+      <a href="contact.html?topic=business-automation">Business Automation</a>
+      <a href="contact.html?topic=technical-infrastructure">Technical Infrastructure</a>
+      <a href="contact.html?topic=ongoing-partnership">Ongoing Partnership</a>
+    </div>
+    <div class="footer-col">
+      <h4 class="mono">// contact</h4>
+      <a href="mailto:hello@applylogics.com">hello@applylogics.com</a>
+      <a href="tel:3523251006">352-325-1006</a>
+      <a href="https://ogtheproject.com" target="_blank" rel="noopener">OG The Project ↗</a>
+    </div>
+  </div>
+  <div class="footer-bottom mono">
+    <span>© 2026 ApplyLogics Inc. All rights reserved.</span>
+    <span class="footer-status"><span class="tag-dot"></span>all systems operational</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="main.js?v=6"></script>
+</body>
+</html>

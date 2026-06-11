@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Start Your Project — ApplyLogics</title>
+<meta name="description" content="Tell us about your project. ApplyLogics responds within one business day." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css?v=6" />
+<link rel="stylesheet" href="contact.css?v=6" />
+</head>
+<body class="contact-page">
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+<header class="nav scrolled" id="nav">
+  <a href="index.html" class="nav-logo mono" data-magnetic>
+    <span class="nav-logo-bracket">[</span>Apply<span class="accent">Logics</span><span class="nav-logo-bracket">]</span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html#services" class="nav-link mono" data-magnetic><span class="nav-num">01</span>Services</a>
+    <a href="index.html#solutions" class="nav-link mono" data-magnetic><span class="nav-num">02</span>Solutions</a>
+    <a href="index.html#work" class="nav-link mono" data-magnetic><span class="nav-num">03</span>Results</a>
+    <a href="index.html" class="nav-cta mono" data-magnetic>← Back Home</a>
+  </nav>
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <a href="index.html#services" class="mobile-link"><span class="mono accent">01</span> Services</a>
+    <a href="index.html#solutions" class="mobile-link"><span class="mono accent">02</span> Solutions</a>
+    <a href="index.html#work" class="mobile-link"><span class="mono accent">03</span> Results</a>
+    <a href="index.html" class="mobile-link"><span class="mono accent">←</span> Home</a>
+    <div class="mobile-menu-foot mono">
+      <a href="tel:3523251006">352-325-1006</a>
+      <a href="mailto:hello@applylogics.com">hello@applylogics.com</a>
+    </div>
+  </div>
+</div>
+
+<main class="contact-main">
+  <div class="contact-grid">
+
+    <div class="contact-left">
+      <span class="section-tag mono" data-reveal>// new_project.init()</span>
+      <h1 class="contact-title">
+        <span class="hero-line"><span class="hero-line-inner">Start your</span></span>
+        <span class="hero-line"><span class="hero-line-inner accent-glow">project.</span></span>
+      </h1>
+      <p class="contact-sub">Tell us what you're building. We'll respond within one business day with next steps and a clear plan.</p>
+
+      <div class="contact-channels mono">
+        <a href="tel:3523251006" class="channel" data-magnetic>
+          <span class="channel-label">// phone</span>
+          <span class="channel-value">352-325-1006</span>
+        </a>
+        <a href="mailto:hello@applylogics.com" class="channel" data-magnetic>
+          <span class="channel-label">// email</span>
+          <span class="channel-value">hello@applylogics.com</span>
+        </a>
+        <div class="channel">
+          <span class="channel-label">// response_time</span>
+          <span class="channel-value"><span class="tag-dot"></span>&lt; 1 business day</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-head mono">
+          <span class="term-dot td-r"></span><span class="term-dot td-y"></span><span class="term-dot td-g"></span>
+          <span class="term-title">project_brief.form</span>
+        </div>
+        <div class="form-body">
+          <div class="field">
+            <label class="mono" for="f-name">// your_name <span class="req">*</span></label>
+            <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Jane Smith" />
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label class="mono" for="f-email">// email <span class="req">*</span></label>
+              <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="jane@company.com" />
+            </div>
+            <div class="field">
+              <label class="mono" for="f-phone">// phone</label>
+              <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555" />
+            </div>
+          </div>
+          <div class="field">
+            <label class="mono" for="f-service">// service_needed</label>
+            <select id="f-service" name="service">
+              <option value="">Select a service…</option>
+              <option>Web Design &amp; Development</option>
+              <option>AI Business Automation</option>
+              <option>Hosting &amp; Server Setup</option>
+              <option>Technology Consulting</option>
+              <option>Custom Development</option>
+              <option>Maintenance &amp; Support</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="mono" for="f-msg">// project_details <span class="req">*</span></label>
+            <textarea id="f-msg" name="message" rows="5" required placeholder="What are you building? What problem are you solving?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg mono form-submit" data-magnetic>
+            <span class="submit-label">Send Brief <span class="btn-arrow">→</span></span>
+          </button>
+          <p class="form-note mono" id="form-note"></p>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer footer-slim">
+  <div class="footer-bottom mono">
+    <span>© 2026 ApplyLogics Inc. All rights reserved.</span>
+    <span class="footer-status"><span class="tag-dot"></span>all systems operational</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="contact.js?v=6"></script>
+</body>
+</html>
