@@ -1,135 +1,233 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Start Your Project — ApplyLogics</title>
-<meta name="description" content="Tell us about your project. ApplyLogics responds within one business day." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=6" />
-<link rel="stylesheet" href="contact.css?v=6" />
-<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
-<meta property="og:title" content="Start Your Project — ApplyLogics" />
-<meta property="og:description" content="Tell us about your project. ApplyLogics responds within one business day." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Start a project — ApplyLogics Studio</title>
+<meta name="description" content="Tell ApplyLogics Studio what you're building. We respond within one business day with next steps and a clear plan. Ocala, Florida — 352-858-0481." />
+<link rel="canonical" href="https://applylogics.com/contact.html" />
+<meta name="theme-color" content="#060807" />
+<meta name="color-scheme" content="dark" />
+
+<meta property="og:site_name" content="ApplyLogics Studio" />
+<meta property="og:title" content="Start a project — ApplyLogics Studio" />
+<meta property="og:description" content="Tell us what you're building. We respond within one business day with next steps and a clear plan." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://applylogics.com/contact.html" />
 <meta property="og:image" content="https://applylogics.com/assets/og-share.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Start Your Project — ApplyLogics" />
-<meta name="twitter:description" content="Tell us about your project. ApplyLogics responds within one business day." />
+<meta name="twitter:title" content="Start a project — ApplyLogics Studio" />
+<meta name="twitter:description" content="Tell us what you're building. We respond within one business day." />
 <meta name="twitter:image" content="https://applylogics.com/assets/og-share.png" />
-<meta name="theme-color" content="#0c0c0c" />
+
+<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="assets/favicon/site.webmanifest" />
+
+<link rel="preload" href="assets/fonts/mona-sans-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="css/base.css?v=7" />
+<link rel="stylesheet" href="css/contact.css?v=7" />
+
+<script>
+  /* flag JS early so intro states never flash; stay covered if we arrived via a page transition */
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try { if (sessionStorage.getItem("als:arriving") === "1") d.classList.add("is-arriving"); } catch (e) {}
+    /* failsafe: if scripts never boot, drop the intro so the page is readable */
+    setTimeout(function () { if (!window.__alsBooted) { d.classList.add("no-boot"); d.classList.remove("is-arriving"); } }, 5000);
+  })();
+</script>
 </head>
-<body class="contact-page">
+<body class="page-contact">
 
-<div class="scanlines" aria-hidden="true"></div>
-<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<header class="nav scrolled" id="nav">
-  <a href="index.html" class="nav-logo mono" data-magnetic>
-    <span class="nav-logo-bracket">[</span>Apply<span class="accent">Logics</span><span class="nav-logo-bracket">]</span>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__label"></div></div>
+
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="ApplyLogics Studio, home">
+    <svg class="brand__mark" viewBox="0 0 13 13" shape-rendering="crispEdges" aria-hidden="true">
+      <rect class="mark-bg" width="13" height="13" rx="2.4" shape-rendering="geometricPrecision" />
+      <path class="mark-fg" d="M6 2h1v1H6zM5 3h3v1H5zM5 4h1v1H5zM7 4h1v1H7zM4 5h2v1H4zM7 5h2v1H7zM4 6h1v1H4zM8 6h1v1H8zM3 7h7v1H3zM3 8h2v1H3zM8 8h2v1H8zM2 9h3v2H2zM8 9h3v2H8z" />
+    </svg>
+    <span class="brand__name">ApplyLogics<em>Studio</em></span>
   </a>
-  <nav class="nav-links" aria-label="Primary">
-    <a href="index.html#services" class="nav-link mono" data-magnetic><span class="nav-num">01</span>Services</a>
-    <a href="index.html#solutions" class="nav-link mono" data-magnetic><span class="nav-num">02</span>Solutions</a>
-    <a href="index.html#work" class="nav-link mono" data-magnetic><span class="nav-num">03</span>Results</a>
-    <a href="index.html" class="nav-cta mono" data-magnetic>← Back Home</a>
+  <nav class="nav__links" aria-label="Primary">
+    <a class="nav__link" href="index.html#mission">Mission</a>
+    <a class="nav__link" href="index.html#eras">History</a>
+    <a class="nav__link" href="index.html#services">Services</a>
+    <a class="nav__link" href="index.html#lab">Lab</a>
+    <a class="nav__link" href="index.html#solutions">Solutions</a>
   </nav>
-  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span>
-  </button>
+  <div class="nav__right">
+    <span class="nav__clock">Ocala, FL&ensp;<span data-clock>--:--:--</span>&ensp;ET</span>
+    <a class="btn nav__cta" href="index.html" data-magnetic="0.25">
+      <span class="btn__label" data-text="← Back home"><span>← Back home</span></span>
+    </a>
+    <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </div>
 </header>
 
-<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-  <div class="mobile-menu-inner">
-    <a href="index.html#services" class="mobile-link"><span class="mono accent">01</span> Services</a>
-    <a href="index.html#solutions" class="mobile-link"><span class="mono accent">02</span> Solutions</a>
-    <a href="index.html#work" class="mobile-link"><span class="mono accent">03</span> Results</a>
-    <a href="index.html" class="mobile-link"><span class="mono accent">←</span> Home</a>
-    <div class="mobile-menu-foot mono">
-      <a href="tel:3523251006">352-325-1006</a>
-      <a href="mailto:hello@applylogics.com">hello@applylogics.com</a>
-    </div>
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__list" aria-label="Menu">
+    <a class="menu__link" href="index.html" style="--i:0"><span><small>00</small> Home</span></a>
+    <a class="menu__link" href="index.html#mission" style="--i:1"><span><small>01</small> Mission</span></a>
+    <a class="menu__link" href="index.html#eras" style="--i:2"><span><small>02</small> History</span></a>
+    <a class="menu__link" href="index.html#services" style="--i:3"><span><small>03</small> Services</span></a>
+    <a class="menu__link" href="index.html#lab" style="--i:4"><span><small>04</small> Lab</span></a>
+    <a class="menu__link" href="index.html#solutions" style="--i:5"><span><small>05</small> Solutions</span></a>
+  </nav>
+  <div class="menu__foot">
+    <a href="tel:+13528580481">352-858-0481</a>
+    <a href="mailto:hello@applylogics.com">hello@applylogics.com</a>
+    <span>Ocala, Florida</span>
   </div>
 </div>
 
-<main class="contact-main">
+<main id="main" class="contact">
   <div class="contact-grid">
 
-    <div class="contact-left">
-      <span class="section-tag mono" data-reveal>// new_project.init()</span>
-      <h1 class="contact-title">
-        <span class="hero-line"><span class="hero-line-inner">Start your</span></span>
-        <span class="hero-line"><span class="hero-line-inner accent-glow">project.</span></span>
-      </h1>
-      <p class="contact-sub">Tell us what you're building. We'll respond within one business day with next steps and a clear plan.</p>
+    <!-- ============ LEFT: title + channels ============ -->
+    <div class="contact-intro">
+      <p class="label" data-in><b>New</b> Project brief</p>
 
-      <div class="contact-channels mono">
-        <a href="tel:3523251006" class="channel" data-magnetic>
-          <span class="channel-label">// phone</span>
-          <span class="channel-value">352-325-1006</span>
-        </a>
-        <a href="mailto:hello@applylogics.com" class="channel" data-magnetic>
-          <span class="channel-label">// email</span>
-          <span class="channel-value">hello@applylogics.com</span>
-        </a>
-        <div class="channel">
-          <span class="channel-label">// response_time</span>
-          <span class="channel-value"><span class="tag-dot"></span>&lt; 1 business day</span>
+      <h1 class="contact-title t-hero" aria-label="Start your project.">
+        <span class="line-mask" aria-hidden="true"><span class="line-in">Start your</span></span>
+        <span class="line-mask" aria-hidden="true"><span class="line-in"><em class="accent">project.</em></span></span>
+      </h1>
+
+      <p class="contact-lead t-lead" data-in>
+        Tell us what you're building. We'll respond within one business day with next steps and a clear plan.
+      </p>
+
+      <dl class="contact-channels">
+        <div class="contact-channel" data-in>
+          <dt class="t-mono">Phone</dt>
+          <dd><a class="link" href="tel:+13528580481" data-cursor="Call">352-858-0481</a></dd>
         </div>
-      </div>
+        <div class="contact-channel" data-in>
+          <dt class="t-mono">Email</dt>
+          <dd><a class="link" href="mailto:hello@applylogics.com" data-cursor="Write">hello@applylogics.com</a></dd>
+        </div>
+        <div class="contact-channel" data-in>
+          <dt class="t-mono">Studio</dt>
+          <dd>Ocala, Florida</dd>
+        </div>
+        <div class="contact-channel" data-in>
+          <dt class="t-mono">Response time</dt>
+          <dd><i class="live-dot"></i>Within one business day</dd>
+        </div>
+        <div class="contact-channel" data-in>
+          <dt class="t-mono">Local time</dt>
+          <dd class="contact-time">Ocala, FL&ensp;<span data-clock>--:--:--</span>&ensp;ET</dd>
+        </div>
+      </dl>
     </div>
 
-    <div class="contact-right">
-      <form class="contact-form" id="contact-form" novalidate>
-        <div class="form-head mono">
-          <span class="term-dot td-r"></span><span class="term-dot td-y"></span><span class="term-dot td-g"></span>
-          <span class="term-title">project_brief.form</span>
-        </div>
-        <div class="form-body">
-          <div class="field">
-            <label class="mono" for="f-name">// your_name <span class="req">*</span></label>
-            <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Jane Smith" />
+    <!-- ============ RIGHT: the brief ============ -->
+    <div class="contact-form" data-in>
+      <form class="brief frame" id="brief" novalidate aria-labelledby="brief-heading">
+        <header class="brief-bar t-mono">
+          <h2 class="brief-bar__title" id="brief-heading">Project brief<span class="brief-bar__sub"> <span aria-hidden="true">—</span> form 01</span></h2>
+          <div class="brief-meter" id="brief-meter" aria-hidden="true">
+            <span class="brief-meter__cells"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="brief-meter__count"><b id="brief-count">0</b>/3</span>
           </div>
-          <div class="field-row">
-            <div class="field">
-              <label class="mono" for="f-email">// email <span class="req">*</span></label>
-              <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="jane@company.com" />
+        </header>
+
+        <div class="brief-body">
+
+          <!-- 01 — who -->
+          <section class="brief-section" aria-labelledby="brief-s1">
+            <h3 class="brief-step t-mono" id="brief-s1"><span>01</span> Who's asking</h3>
+
+            <div class="brief-field" data-field="name">
+              <label class="brief-label" for="f-name"><span class="brief-label__text">Your name</span><span class="brief-tag">Required</span></label>
+              <div class="brief-control">
+                <input class="brief-input" id="f-name" name="name" type="text" autocomplete="name" required aria-required="true" aria-describedby="err-name" placeholder="Jane Smith" />
+              </div>
+              <p class="brief-error" id="err-name" role="alert"></p>
             </div>
-            <div class="field">
-              <label class="mono" for="f-phone">// phone</label>
-              <input type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555" />
+
+            <div class="brief-row">
+              <div class="brief-field" data-field="email">
+                <label class="brief-label" for="f-email"><span class="brief-label__text">Email</span><span class="brief-tag">Required</span></label>
+                <div class="brief-control">
+                  <input class="brief-input" id="f-email" name="email" type="email" inputmode="email" autocomplete="email" required aria-required="true" aria-describedby="err-email" placeholder="jane@company.com" />
+                </div>
+                <p class="brief-error" id="err-email" role="alert"></p>
+              </div>
+              <div class="brief-field" data-field="phone">
+                <label class="brief-label" for="f-phone"><span class="brief-label__text">Phone</span><span class="brief-tag brief-tag--opt">Optional</span></label>
+                <div class="brief-control">
+                  <input class="brief-input" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(555) 555-5555" />
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <label class="mono" for="f-service">// service_needed</label>
-            <select id="f-service" name="service">
-              <option value="">Select a service…</option>
-              <option>Web Design &amp; Development</option>
-              <option>AI Business Automation</option>
-              <option>Hosting &amp; Server Setup</option>
-              <option>Technology Consulting</option>
-              <option>Custom Development</option>
-              <option>Maintenance &amp; Support</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-          <div class="field">
-            <label class="mono" for="f-msg">// project_details <span class="req">*</span></label>
-            <textarea id="f-msg" name="message" rows="5" required placeholder="What are you building? What problem are you solving?"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg mono form-submit" data-magnetic>
-            <span class="submit-label">Send Brief <span class="btn-arrow">→</span></span>
-          </button>
-          <p class="form-note mono" id="form-note"></p>
+          </section>
+
+          <!-- 02 — what -->
+          <section class="brief-section" aria-labelledby="brief-s2">
+            <h3 class="brief-step t-mono" id="brief-s2"><span>02</span> What you need</h3>
+
+            <fieldset class="brief-fieldset" data-field="service">
+              <legend class="brief-label"><span class="brief-label__text">Service needed</span><span class="brief-tag brief-tag--opt">Optional</span></legend>
+              <div class="brief-service">
+                <div class="brief-chips">
+                  <label class="brief-chip"><input type="radio" name="service" value="Web Design &amp; Development" data-glyph-name="icon-web" /><span>Web Design &amp; Development</span></label>
+                  <label class="brief-chip"><input type="radio" name="service" value="AI Business Automation" data-glyph-name="icon-agent" /><span>AI Business Automation</span></label>
+                  <label class="brief-chip"><input type="radio" name="service" value="Hosting &amp; Server Setup" data-glyph-name="icon-server" /><span>Hosting &amp; Server Setup</span></label>
+                  <label class="brief-chip"><input type="radio" name="service" value="Technology Consulting" data-glyph-name="icon-compass" /><span>Technology Consulting</span></label>
+                  <label class="brief-chip"><input type="radio" name="service" value="Custom Development" data-glyph-name="icon-code" /><span>Custom Development</span></label>
+                  <label class="brief-chip"><input type="radio" name="service" value="Maintenance &amp; Support" data-glyph-name="icon-pulse" /><span>Maintenance &amp; Support</span></label>
+                  <label class="brief-chip"><input type="radio" name="service" value="Not sure yet" data-glyph-name="mark" /><span>Not sure yet</span></label>
+                </div>
+                <div class="brief-glyph" aria-hidden="true">
+                  <canvas class="px-glyph brief-glyph__canvas" id="brief-glyph" data-glyph="mark"></canvas>
+                  <span class="brief-glyph__text t-mono"><span class="brief-glyph__kicker">Selected service</span><span class="brief-glyph__label" id="brief-glyph-label">None yet. Pick one, or skip it</span></span>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="brief-field" data-field="message">
+              <label class="brief-label" for="f-msg"><span class="brief-label__text">Project details</span><span class="brief-tag">Required</span></label>
+              <div class="brief-control">
+                <textarea class="brief-input brief-input--area" id="f-msg" name="message" rows="4" required aria-required="true" aria-describedby="err-message" placeholder="What are you building? What problem are you solving?"></textarea>
+              </div>
+              <p class="brief-error" id="err-message" role="alert"></p>
+            </div>
+          </section>
+
+          <!-- 03 — send -->
+          <section class="brief-section brief-section--send" aria-labelledby="brief-s3">
+            <h3 class="brief-step t-mono" id="brief-s3"><span>03</span> Send it</h3>
+
+            <div class="brief-actions">
+              <button class="btn btn--primary btn--lg brief-submit" type="submit" data-magnetic="0.2">
+                <span class="btn__label" data-text="Send brief"><span>Send brief</span></span>
+                <svg class="btn__icon" viewBox="0 0 12 12" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h2v2H6zM8 3h2v2H8zM0 5h12v2H0zM8 7h2v2H8zM6 9h2v2H6z"/></svg>
+              </button>
+              <button class="btn btn--lg brief-copy" type="button" id="brief-copy">
+                <span class="btn__label" data-text="Copy brief"><span>Copy brief</span></span>
+              </button>
+            </div>
+
+            <p class="brief-status" id="brief-status" role="status" aria-live="polite"></p>
+
+            <p class="brief-note">
+              <strong>How this works:</strong> Send brief opens your own email app with everything above already filled in — nothing leaves this page until you press send there. No mail app on this device? Copy the brief and paste it into any email to
+              <a href="mailto:hello@applylogics.com">hello@applylogics.com</a>, or call
+              <a href="tel:+13528580481">352-858-0481</a>.
+            </p>
+          </section>
+
         </div>
       </form>
     </div>
@@ -137,14 +235,25 @@
   </div>
 </main>
 
-<footer class="footer footer-slim">
-  <div class="footer-bottom mono">
-    <span>© 2026 ApplyLogics Inc. All rights reserved.</span>
-    <span class="footer-status"><span class="tag-dot"></span>all systems operational</span>
+<footer class="footer contact-footer">
+  <a class="brand" href="index.html" aria-label="ApplyLogics Studio, home">
+    <svg class="brand__mark" viewBox="0 0 13 13" shape-rendering="crispEdges" aria-hidden="true">
+      <rect class="mark-bg" width="13" height="13" rx="2.4" shape-rendering="geometricPrecision" />
+      <path class="mark-fg" d="M6 2h1v1H6zM5 3h3v1H5zM5 4h1v1H5zM7 4h1v1H7zM4 5h2v1H4zM7 5h2v1H7zM4 6h1v1H4zM8 6h1v1H8zM3 7h7v1H3zM3 8h2v1H3zM8 8h2v1H8zM2 9h3v2H2zM8 9h3v2H8z" />
+    </svg>
+    <span class="brand__name">ApplyLogics<em>Studio</em></span>
+  </a>
+  <div class="footer__bottom">
+    <span>© 2026 ApplyLogics Studio. All rights reserved.</span>
+    <span><i class="live-dot"></i>Ocala, FL&ensp;<span data-clock>--:--:--</span>&ensp;ET</span>
+    <a href="index.html">Back home ←</a>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="contact.js?v=6"></script>
+<script defer src="js/vendor/gsap.min.js"></script>
+<script defer src="js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="js/vendor/SplitText.min.js"></script>
+<script defer src="js/vendor/lenis.min.js"></script>
+<script type="module" src="js/contact.js?v=7"></script>
 </body>
 </html>

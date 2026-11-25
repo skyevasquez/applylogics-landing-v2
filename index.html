@@ -1,308 +1,688 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ApplyLogics — We Build Digital Solutions</title>
-<meta name="description" content="ApplyLogics is a full-service technology company. Web development, AI business automation, hosting and technical infrastructure — engineered end to end." />
-<meta property="og:title" content="ApplyLogics — We Build Digital Solutions" />
-<meta property="og:description" content="End-to-end digital transformation for modern businesses. Web, AI, Cloud." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>ApplyLogics Studio — Stay on the right side of history</title>
+<meta name="description" content="ApplyLogics Studio designs and engineers the websites, AI automation and infrastructure that move real businesses forward. Based in Ocala, Florida." />
+<link rel="canonical" href="https://applylogics.com/" />
+<meta name="theme-color" content="#060807" />
+<meta name="color-scheme" content="dark" />
+
+<meta property="og:site_name" content="ApplyLogics Studio" />
+<meta property="og:title" content="ApplyLogics Studio — Stay on the right side of history" />
+<meta property="og:description" content="Websites, AI automation and infrastructure for businesses that intend to be around tomorrow. Ocala, Florida." />
 <meta property="og:type" content="website" />
-<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
 <meta property="og:url" content="https://applylogics.com/" />
 <meta property="og:image" content="https://applylogics.com/assets/og-share.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="ApplyLogics — We Build Digital Solutions" />
-<meta name="twitter:description" content="End-to-end digital transformation. Web, AI, Cloud." />
+<meta name="twitter:title" content="ApplyLogics Studio — Stay on the right side of history" />
+<meta name="twitter:description" content="Websites, AI automation and infrastructure for businesses that intend to be around tomorrow." />
 <meta name="twitter:image" content="https://applylogics.com/assets/og-share.png" />
-<meta name="theme-color" content="#0c0c0c" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css?v=6" />
-</head>
-<body>
 
-<!-- Loader -->
+<link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="assets/favicon/site.webmanifest" />
+
+<link rel="preload" href="assets/fonts/mona-sans-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="css/base.css?v=7" />
+<link rel="stylesheet" href="css/home.css?v=7" />
+<link rel="stylesheet" href="css/lab.css?v=7" />
+
+<script>
+  /* flag JS early so intro states never flash; stay covered if we arrived via a page transition */
+  (function () {
+    var d = document.documentElement;
+    d.classList.add("js");
+    try { if (sessionStorage.getItem("als:arriving") === "1") d.classList.add("is-arriving"); } catch (e) {}
+    /* failsafe: if scripts never boot, drop the intro so the page is readable */
+    setTimeout(function () { if (!window.__alsBooted) d.classList.add("no-boot"); }, 5000);
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ApplyLogics Studio",
+  "url": "https://applylogics.com/",
+  "image": "https://applylogics.com/assets/og-share.png",
+  "telephone": "+1-352-858-0481",
+  "email": "hello@applylogics.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Ocala", "addressRegion": "FL", "addressCountry": "US" },
+  "description": "Web design and development, AI business automation, hosting and technical infrastructure."
+}
+</script>
+</head>
+<body class="page-home">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Intro: the year counter runs from prehistory to the present -->
 <div class="loader" id="loader" aria-hidden="true">
-  <div class="loader-inner">
-    <div class="loader-line"><span class="loader-prompt">user@applylogics:~$</span> <span id="loader-cmd"></span><span class="cursor-block"></span></div>
-    <div class="loader-bar"><div class="loader-bar-fill" id="loader-bar-fill"></div></div>
-    <div class="loader-pct mono" id="loader-pct">0%</div>
+  <div class="loader__row t-mono">
+    <span>ApplyLogics Studio</span>
+    <span>Loading the present</span>
+  </div>
+  <div class="loader__year">
+    <span class="loader__num" id="loader-year">10,000</span>
+    <span class="loader__suffix" id="loader-suffix">BC</span>
+  </div>
+  <div class="loader__row t-mono">
+    <span id="loader-tool">Fire</span>
+    <span class="loader__bar"><i id="loader-bar"></i></span>
+    <span id="loader-pct">000</span>
   </div>
 </div>
 
-<!-- Scanlines overlay -->
-<div class="scanlines" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__label"></div></div>
 
-<!-- Custom cursor -->
-<div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-<div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+<!-- One persistent WebGL stage: ~3,000 cubes that assemble into every glyph on the page -->
+<canvas class="stage" id="stage" aria-hidden="true"></canvas>
 
-<!-- Scroll progress -->
-<div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
-
-<!-- Nav -->
-<header class="nav" id="nav">
-  <a href="#hero" class="nav-logo mono" data-magnetic>
-    <span class="nav-logo-bracket">[</span>Apply<span class="accent">Logics</span><span class="nav-logo-bracket">]</span>
+<header class="nav">
+  <a class="brand" href="#top" aria-label="ApplyLogics Studio, home">
+    <svg class="brand__mark" viewBox="0 0 13 13" shape-rendering="crispEdges" aria-hidden="true">
+      <rect class="mark-bg" width="13" height="13" rx="2.4" shape-rendering="geometricPrecision" />
+      <path class="mark-fg" d="M6 2h1v1H6zM5 3h3v1H5zM5 4h1v1H5zM7 4h1v1H7zM4 5h2v1H4zM7 5h2v1H7zM4 6h1v1H4zM8 6h1v1H8zM3 7h7v1H3zM3 8h2v1H3zM8 8h2v1H8zM2 9h3v2H2zM8 9h3v2H8z" />
+    </svg>
+    <span class="brand__name">ApplyLogics<em>Studio</em></span>
   </a>
-  <nav class="nav-links" id="nav-links" aria-label="Primary">
-    <a href="#services" class="nav-link mono" data-magnetic><span class="nav-num">01</span>Services</a>
-    <a href="#solutions" class="nav-link mono" data-magnetic><span class="nav-num">02</span>Solutions</a>
-    <a href="#work" class="nav-link mono" data-magnetic><span class="nav-num">03</span>Results</a>
-    <a href="#contact" class="nav-cta mono" data-magnetic>Start a Project<span class="nav-cta-arrow">→</span></a>
+  <nav class="nav__links" aria-label="Primary">
+    <a class="nav__link" href="#mission">Mission</a>
+    <a class="nav__link" href="#eras">History</a>
+    <a class="nav__link" href="#services">Services</a>
+    <a class="nav__link" href="#lab">Lab</a>
+    <a class="nav__link" href="#solutions">Solutions</a>
   </nav>
-  <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span>
-  </button>
+  <div class="nav__right">
+    <span class="nav__clock">Ocala, FL&ensp;<span data-clock>--:--:--</span>&ensp;ET</span>
+    <a class="btn btn--primary nav__cta" href="contact.html" data-magnetic="0.25">
+      <span class="btn__label" data-text="Start a project"><span>Start a project</span></span>
+    </a>
+    <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><i></i><i></i></button>
+  </div>
 </header>
 
-<!-- Mobile menu -->
-<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
-  <div class="mobile-menu-inner">
-    <a href="#services" class="mobile-link"><span class="mono accent">01</span> Services</a>
-    <a href="#solutions" class="mobile-link"><span class="mono accent">02</span> Solutions</a>
-    <a href="#work" class="mobile-link"><span class="mono accent">03</span> Results</a>
-    <a href="#contact" class="mobile-link"><span class="mono accent">04</span> Contact</a>
-    <div class="mobile-menu-foot mono">
-      <a href="tel:3523251006">352-325-1006</a>
-      <a href="mailto:hello@applylogics.com">hello@applylogics.com</a>
-    </div>
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__list" aria-label="Menu">
+    <a class="menu__link" href="#mission" style="--i:0"><span><small>01</small> Mission</span></a>
+    <a class="menu__link" href="#eras" style="--i:1"><span><small>02</small> History</span></a>
+    <a class="menu__link" href="#services" style="--i:2"><span><small>03</small> Services</span></a>
+    <a class="menu__link" href="#lab" style="--i:3"><span><small>04</small> Lab</span></a>
+    <a class="menu__link" href="#solutions" style="--i:4"><span><small>05</small> Solutions</span></a>
+    <a class="menu__link" href="contact.html" style="--i:5"><span><small>06</small> Contact</span></a>
+  </nav>
+  <div class="menu__foot">
+    <a href="tel:+13528580481">352-858-0481</a>
+    <a href="mailto:hello@applylogics.com">hello@applylogics.com</a>
+    <span>Ocala, Florida</span>
   </div>
 </div>
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <canvas id="webgl" aria-hidden="true"></canvas>
-    <div class="hero-grid-overlay" aria-hidden="true"></div>
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__meta t-mono">
+      <span><i class="live-dot"></i>Design + engineering studio</span>
+      <span>Ocala, Florida — 29.19° N, 82.14° W</span>
+    </div>
 
-    <div class="hero-content">
-      <div class="hero-tag mono" data-hero-fade>
-        <span class="tag-dot"></span>// Full-Service Technology Company
-      </div>
-      <h1 class="hero-title" aria-label="We build digital solutions.">
-        <span class="hero-line"><span class="hero-line-inner">We build</span></span>
-        <span class="hero-line"><span class="hero-line-inner accent-glow">digital</span></span>
-        <span class="hero-line"><span class="hero-line-inner"><em>solutions.</em></span></span>
-      </h1>
-      <p class="hero-sub" data-hero-fade>
-        End-to-end digital transformation for modern businesses —
-        from web development to AI automation, engineered to ship and built to last.
+    <h1 class="hero__title t-hero" aria-label="Stay on the right side of history.">
+      <span class="hero__line" aria-hidden="true"><span class="hero__line-in" data-kinetic>Stay on the</span></span>
+      <span class="hero__line hero__line--b" aria-hidden="true"><span class="hero__line-in" data-kinetic>right side</span></span>
+      <span class="hero__line hero__line--c" aria-hidden="true"><span class="hero__line-in"><span data-kinetic>of</span> <em>history.</em></span></span>
+    </h1>
+
+    <div class="hero__foot">
+      <p class="hero__lead t-lead" data-hero-in>
+        ApplyLogics Studio designs and engineers the websites, AI systems and infrastructure that move real businesses forward — engineered to ship, built to last.
       </p>
-      <div class="hero-actions" data-hero-fade>
-        <a href="contact.html" class="btn btn-primary mono" data-magnetic>Get Started <span class="btn-arrow">→</span></a>
-        <a href="#services" class="btn btn-ghost mono" data-magnetic>Explore Services</a>
+      <div class="hero__actions" data-hero-in>
+        <a class="btn btn--primary btn--lg" href="contact.html" data-magnetic>
+          <span class="btn__label" data-text="Start a project"><span>Start a project</span></span>
+          <svg class="btn__icon" viewBox="0 0 12 12" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h2v2H6zM8 3h2v2H8zM0 5h12v2H0zM8 7h2v2H8zM6 9h2v2H6z"/></svg>
+        </a>
+        <a class="btn btn--lg" href="#mission" data-magnetic>
+          <span class="btn__label" data-text="Read the mission"><span>Read the mission</span></span>
+        </a>
       </div>
-    </div>
-
-    <div class="hero-terminal mono" data-hero-fade aria-hidden="true">
-      <div class="term-head">
-        <span class="term-dot td-r"></span><span class="term-dot td-y"></span><span class="term-dot td-g"></span>
-        <span class="term-title">applylogics.sh</span>
-      </div>
-      <pre class="term-body"><code><span class="t-kw">const</span> solution = <span class="t-kw">await</span> applyLogics.<span class="t-fn">transform</span>({
-  business: <span class="t-str">"yours"</span>,
-  tech: [<span class="t-str">"AI"</span>, <span class="t-str">"Web"</span>, <span class="t-str">"Cloud"</span>],
-  result: <span class="t-str">"success"</span>
-});<span class="cursor-block"></span></code></pre>
-    </div>
-
-    <div class="hero-scroll mono" data-hero-fade>
-      <span class="hero-scroll-text">scroll to explore</span>
-      <span class="hero-scroll-line"></span>
+      <a class="hero__scroll t-mono" href="#mission" data-hero-in aria-label="Scroll to the mission">
+        <span>Scroll</span><i></i>
+      </a>
     </div>
   </section>
 
-  <!-- MARQUEE -->
+  <!-- ============ MARQUEE ============ -->
   <div class="marquee" aria-hidden="true">
-    <div class="marquee-track mono" id="marquee-track">
-      <span>WEB DEVELOPMENT ✦ AI AUTOMATION ✦ CLOUD INFRASTRUCTURE ✦ CUSTOM SOFTWARE ✦ HOSTING ✦ CONSULTING ✦&nbsp;</span>
-      <span>WEB DEVELOPMENT ✦ AI AUTOMATION ✦ CLOUD INFRASTRUCTURE ✦ CUSTOM SOFTWARE ✦ HOSTING ✦ CONSULTING ✦&nbsp;</span>
+    <div class="marquee__track" id="marquee">
+      <div class="marquee__group">
+        <span>Web design</span><i></i><span><em>AI automation</em></span><i></i><span>Hosting</span><i></i><span><em>Consulting</em></span><i></i><span>Custom software</span><i></i><span><em>Support</em></span><i></i>
+      </div>
+      <div class="marquee__group">
+        <span>Web design</span><i></i><span><em>AI automation</em></span><i></i><span>Hosting</span><i></i><span><em>Consulting</em></span><i></i><span>Custom software</span><i></i><span><em>Support</em></span><i></i>
+      </div>
     </div>
   </div>
 
-  <!-- EVOLVE -->
-  <section class="evolve" id="evolve">
-    <img src="assets/logo-mark.png" alt="ApplyLogics mark" class="evolve-logo" data-reveal width="56" height="56" />
-    <h2 class="evolve-title" data-split>Stay on the right side of history.</h2>
-    <a href="contact.html" class="btn btn-primary mono" data-magnetic data-reveal>Get Started <span class="btn-arrow">→</span></a>
-    <div class="evolve-media">
-      <video
-        id="evolve-video"
-        class="evolve-video"
-        src="assets/cavemen-loop.mp4"
-        poster="assets/cavemen-poster.jpg"
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        aria-label="Cavemen gathered around a glowing laptop and tablet"
-      ></video>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <section class="stats" id="work">
-    <div class="section-head">
-      <span class="section-tag mono">// proven results</span>
-    </div>
-    <div class="stats-grid">
-      <div class="stat" data-reveal>
-        <div class="stat-num mono"><span class="counter" data-target="50">0</span><span class="accent">+</span></div>
-        <div class="stat-label mono">Projects Delivered</div>
-      </div>
-      <div class="stat" data-reveal>
-        <div class="stat-num mono"><span class="counter" data-target="98">0</span><span class="accent">%</span></div>
-        <div class="stat-label mono">Client Satisfaction</div>
-      </div>
-      <div class="stat" data-reveal>
-        <div class="stat-num mono"><span class="counter" data-target="24">0</span><span class="accent">/7</span></div>
-        <div class="stat-label mono">Support Available</div>
-      </div>
-      <div class="stat" data-reveal>
-        <div class="stat-num mono"><span class="counter" data-target="300">0</span><span class="accent">%</span></div>
-        <div class="stat-label mono">Avg. Performance Gain</div>
+  <!-- ============ MISSION ============ -->
+  <section class="manifesto section" id="mission">
+    <div class="wrap">
+      <p class="label" data-reveal><b>01</b> Mission</p>
+      <p class="manifesto__text" id="manifesto-text">
+        Every era hands business a new tool.
+        <span class="era-word" style="--c:var(--era-fire)">Fire.</span>
+        <span class="era-word" style="--c:var(--era-wheel)">The wheel.</span>
+        <span class="era-word" style="--c:var(--era-press)">The press.</span>
+        <span class="era-word" style="--c:var(--era-light)">Electricity.</span>
+        <span class="era-word" style="--c:var(--era-web)">The web.</span>
+        Now, <span class="era-word" style="--c:var(--era-mind)">intelligence.</span>
+        The businesses that pick it up write the next chapter. The rest become a story about how things used to be done.
+      </p>
+      <div class="manifesto__foot grid">
+        <p class="manifesto__sig t-mono" data-reveal>— The reason this studio exists</p>
+        <p class="manifesto__body t-lead" data-reveal>
+          Our job is to keep you on the right side of that line. We design it, build it, host it and stay with it — <em>so the new tool ends up in your hands, not just your competitor's.</em>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="section-head">
-      <span class="section-tag mono" data-reveal>// our services</span>
-      <h2 class="section-title" data-split>Everything your stack needs. Nothing it doesn't.</h2>
-      <p class="section-sub" data-reveal>Comprehensive technology solutions tailored to your business.</p>
-    </div>
-
-    <div class="service-list">
-      <article class="service-row" data-reveal>
-        <span class="service-num mono">01</span>
-        <div class="service-main">
-          <h3 class="service-name">Web Design &amp; Development</h3>
-          <p class="service-desc">Modern, responsive websites focused on brand identity and user experience. Custom designs that convert visitors into customers.</p>
-        </div>
-        <span class="service-arrow mono" aria-hidden="true">↗</span>
-      </article>
-      <article class="service-row" data-reveal>
-        <span class="service-num mono">02</span>
-        <div class="service-main">
-          <h3 class="service-name">AI Business Automation</h3>
-          <p class="service-desc">Chatbots, agents, and smart workflows that streamline operations and cut manual processes down to zero.</p>
-        </div>
-        <span class="service-arrow mono" aria-hidden="true">↗</span>
-      </article>
-      <article class="service-row" data-reveal>
-        <span class="service-num mono">03</span>
-        <div class="service-main">
-          <h3 class="service-name">Hosting &amp; Server Setup</h3>
-          <p class="service-desc">Secure, reliable hosting with professional setup and ongoing management for optimal performance.</p>
-        </div>
-        <span class="service-arrow mono" aria-hidden="true">↗</span>
-      </article>
-      <article class="service-row" data-reveal>
-        <span class="service-num mono">04</span>
-        <div class="service-main">
-          <h3 class="service-name">Technology Consulting</h3>
-          <p class="service-desc">Strategic guidance on digital infrastructure, solution design, and technology planning for growth.</p>
-        </div>
-        <span class="service-arrow mono" aria-hidden="true">↗</span>
-      </article>
-      <article class="service-row" data-reveal>
-        <span class="service-num mono">05</span>
-        <div class="service-main">
-          <h3 class="service-name">Custom Development</h3>
-          <p class="service-desc">Custom apps, API integrations, and database design tailored to your exact requirements.</p>
-        </div>
-        <span class="service-arrow mono" aria-hidden="true">↗</span>
-      </article>
-      <article class="service-row" data-reveal>
-        <span class="service-num mono">06</span>
-        <div class="service-main">
-          <h3 class="service-name">Maintenance &amp; Support</h3>
-          <p class="service-desc">Updates, security patches, monitoring, and technical support that keeps everything running.</p>
-        </div>
-        <span class="service-arrow mono" aria-hidden="true">↗</span>
-      </article>
+  <!-- ============ FILM ============ -->
+  <section class="film" id="film" aria-label="Film: first contact">
+    <div class="film__pin">
+      <p class="film__kicker t-mono"><span>Fig. 01</span><span>First contact</span></p>
+      <h2 class="film__title t-display" id="film-title">Every tool looks like <em>magic</em> until someone shows you how it works.</h2>
+      <figure class="film__frame" id="film-frame">
+        <video
+          id="film-video"
+          class="film__video"
+          src="assets/cavemen-loop.mp4"
+          poster="assets/cavemen-poster.jpg"
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-label="Four cavemen gathered around a glowing laptop and tablet, studying them with suspicion."
+        ></video>
+        <span class="film__shade" aria-hidden="true"></span>
+        <figcaption class="film__caption">
+          <span class="t-mono">Early adopters, date unknown</span>
+          <span class="film__punch t-title" id="film-punch">That <em>someone</em> is us.</span>
+        </figcaption>
+      </figure>
+      <button class="film__toggle t-mono" id="film-toggle" type="button" aria-pressed="false" data-cursor="Pause">
+        <i aria-hidden="true"></i><span>Pause film</span>
+      </button>
     </div>
   </section>
 
-  <!-- SOLUTIONS -->
-  <section class="solutions" id="solutions">
-    <div class="section-head">
-      <span class="section-tag mono" data-reveal>// comprehensive solutions</span>
-      <h2 class="section-title" data-split>From first commit to long-term partnership.</h2>
-    </div>
-    <div class="solutions-grid">
-      <a class="sol-card" href="contact.html?topic=digital-presence" data-reveal data-tilt>
-        <span class="sol-index mono">[ 0x01 ]</span>
-        <h3 class="sol-name">Digital Presence</h3>
-        <p class="sol-desc">Complete web presence — design, development, hosting, and maintenance for maximum impact.</p>
-        <span class="sol-link mono">deploy →</span>
-      </a>
-      <a class="sol-card" href="contact.html?topic=business-automation" data-reveal data-tilt>
-        <span class="sol-index mono">[ 0x02 ]</span>
-        <h3 class="sol-name">Business Automation</h3>
-        <p class="sol-desc">Smart automation tools and AI-powered systems to streamline workflows and reduce manual work.</p>
-        <span class="sol-link mono">deploy →</span>
-      </a>
-      <a class="sol-card" href="contact.html?topic=technical-infrastructure" data-reveal data-tilt>
-        <span class="sol-index mono">[ 0x03 ]</span>
-        <h3 class="sol-name">Technical Infrastructure</h3>
-        <p class="sol-desc">Robust server setup, secure hosting, and reliable infrastructure to support your operations.</p>
-        <span class="sol-link mono">deploy →</span>
-      </a>
-      <a class="sol-card" href="contact.html?topic=ongoing-partnership" data-reveal data-tilt>
-        <span class="sol-index mono">[ 0x04 ]</span>
-        <h3 class="sol-name">Ongoing Partnership</h3>
-        <p class="sol-desc">Long-term technology partnership with continuous support, updates, and strategic guidance.</p>
-        <span class="sol-link mono">deploy →</span>
-      </a>
+  <!-- ============ ERAS ============ -->
+  <section class="eras" id="eras" aria-labelledby="eras-title">
+    <div class="eras__pin">
+      <header class="eras__head">
+        <p class="label"><b>02</b> A short history of not getting left behind</p>
+        <h2 class="sr-only" id="eras-title">Six tools that changed business</h2>
+        <p class="eras__count t-mono" aria-hidden="true"><span id="eras-n">01</span> / 06</p>
+      </header>
+
+      <ol class="eras__list" id="eras-list">
+        <li class="era is-active" data-era="fire" style="--c:var(--era-fire)">
+          <canvas class="px-glyph era__glyph" data-glyph="fire"></canvas>
+          <p class="era__year t-mono">Prehistory</p>
+          <h3 class="era__name">Fire</h3>
+          <p class="era__text t-lead">The first technology. The ones who learned to carry it ate better, slept safer and went further. Nobody remembers the holdouts.</p>
+        </li>
+        <li class="era" data-era="wheel" style="--c:var(--era-wheel)">
+          <canvas class="px-glyph era__glyph" data-glyph="wheel"></canvas>
+          <p class="era__year t-mono">c. 3500 BC</p>
+          <h3 class="era__name">The wheel</h3>
+          <p class="era__text t-lead">Suddenly distance was negotiable. Trade stopped being limited to what you could carry on your back.</p>
+        </li>
+        <li class="era" data-era="press" style="--c:var(--era-press)">
+          <canvas class="px-glyph era__glyph" data-glyph="press"></canvas>
+          <p class="era__year t-mono">c. 1440</p>
+          <h3 class="era__name">The press</h3>
+          <p class="era__text t-lead">Ideas learned to scale. One page became ten thousand, and whoever published first set the conversation.</p>
+        </li>
+        <li class="era" data-era="light" style="--c:var(--era-light)">
+          <canvas class="px-glyph era__glyph" data-glyph="light"></canvas>
+          <p class="era__year t-mono">1879</p>
+          <h3 class="era__name">Electricity</h3>
+          <p class="era__text t-lead">The workday stopped ending at sundown. The shops that wired up outpaced the ones that waited to see how it played out.</p>
+        </li>
+        <li class="era" data-era="web" style="--c:var(--era-web)">
+          <canvas class="px-glyph era__glyph" data-glyph="web"></canvas>
+          <p class="era__year t-mono">1991</p>
+          <h3 class="era__name">The web</h3>
+          <p class="era__text t-lead">Every business got a front door open to the whole world. Some are still deciding whether to unlock it.</p>
+        </li>
+        <li class="era" data-era="mind" style="--c:var(--era-mind)">
+          <canvas class="px-glyph era__glyph" data-glyph="mind"></canvas>
+          <p class="era__year t-mono">Now</p>
+          <h3 class="era__name">Intelligence</h3>
+          <p class="era__text t-lead">Software that reads, writes, answers and acts. The gap between the businesses using it and the ones watching is opening right now. <a class="link link--on" href="#services">This is where we come in.</a></p>
+        </li>
+      </ol>
+
+      <div class="eras__rail" aria-hidden="true">
+        <div class="eras__ticks">
+          <span class="is-active" style="--c:var(--era-fire)">Fire</span>
+          <span style="--c:var(--era-wheel)">Wheel</span>
+          <span style="--c:var(--era-press)">Press</span>
+          <span style="--c:var(--era-light)">Electricity</span>
+          <span style="--c:var(--era-web)">Web</span>
+          <span style="--c:var(--era-mind)">Intelligence</span>
+        </div>
+        <div class="eras__bar"><i id="eras-bar"></i></div>
+      </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testimonials" id="testimonials">
-    <div class="section-head">
-      <span class="section-tag mono" data-reveal>// client_testimonials.log</span>
-      <h2 class="section-title" data-split>Signal, not noise.</h2>
-    </div>
-    <div class="testi-grid">
-      <figure class="testi-card" data-reveal>
-        <blockquote>"ApplyLogics transformed our digital presence completely. Beautiful, responsive website and hosting that has never let us down."</blockquote>
-        <figcaption class="mono"><span class="accent">$</span> Sarah Johnson — CEO, TechStart Solutions</figcaption>
-      </figure>
-      <figure class="testi-card" data-reveal>
-        <blockquote>"The chatbot handles 80% of our inquiries automatically, and the custom development work was flawless."</blockquote>
-        <figcaption class="mono"><span class="accent">$</span> Michael Chen — Ops Director, GrowthCorp</figcaption>
-      </figure>
-      <figure class="testi-card" data-reveal>
-        <blockquote>"They migrated our entire system to the cloud with zero downtime and improved performance by 300%."</blockquote>
-        <figcaption class="mono"><span class="accent">$</span> David Park — CTO, InnovateTech</figcaption>
-      </figure>
-      <figure class="testi-card" data-reveal>
-        <blockquote>"Their consulting helped us identify opportunities we never knew existed. ROI increased within months."</blockquote>
-        <figcaption class="mono"><span class="accent">$</span> Jennifer Martinez — Founder, ScaleUp Ventures</figcaption>
-      </figure>
+  <!-- ============ SERVICES ============ -->
+  <section class="services section" id="services">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="label" data-reveal><b>03</b> Services</p>
+        <h2 class="t-display" data-split>Everything your stack needs. <em>Nothing it doesn't.</em></h2>
+        <p class="section-head__aside t-body" data-reveal>Six disciplines, one team. Pick the piece you're missing, or hand us the whole thing.</p>
+      </header>
+
+      <ul class="svc-list" id="svc-list">
+        <li>
+          <a class="svc" href="contact.html?topic=web-design" data-cursor="Brief us">
+            <span class="svc__idx t-mono">01</span>
+            <canvas class="px-glyph svc__glyph" data-glyph="icon-web"></canvas>
+            <h3 class="svc__name">Web Design <span class="amp">&amp;</span> Development</h3>
+            <p class="svc__desc">Modern, responsive websites built around brand identity and user experience. Custom designs that turn visitors into customers.</p>
+            <span class="svc__go" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a class="svc" href="contact.html?topic=ai-automation" data-cursor="Brief us">
+            <span class="svc__idx t-mono">02</span>
+            <canvas class="px-glyph svc__glyph" data-glyph="icon-agent"></canvas>
+            <h3 class="svc__name">AI Business Automation</h3>
+            <p class="svc__desc">Chatbots, agents and smart workflows that streamline operations and take the manual work off your team's plate.</p>
+            <span class="svc__go" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a class="svc" href="contact.html?topic=hosting" data-cursor="Brief us">
+            <span class="svc__idx t-mono">03</span>
+            <canvas class="px-glyph svc__glyph" data-glyph="icon-server"></canvas>
+            <h3 class="svc__name">Hosting <span class="amp">&amp;</span> Server Setup</h3>
+            <p class="svc__desc">Secure, reliable hosting with professional setup and ongoing management for optimal performance.</p>
+            <span class="svc__go" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a class="svc" href="contact.html?topic=consulting" data-cursor="Brief us">
+            <span class="svc__idx t-mono">04</span>
+            <canvas class="px-glyph svc__glyph" data-glyph="icon-compass"></canvas>
+            <h3 class="svc__name">Technology Consulting</h3>
+            <p class="svc__desc">Strategic guidance on digital infrastructure, solution design and technology planning for growth.</p>
+            <span class="svc__go" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a class="svc" href="contact.html?topic=custom-dev" data-cursor="Brief us">
+            <span class="svc__idx t-mono">05</span>
+            <canvas class="px-glyph svc__glyph" data-glyph="icon-code"></canvas>
+            <h3 class="svc__name">Custom Development</h3>
+            <p class="svc__desc">Custom apps, API integrations and database design tailored to your exact requirements.</p>
+            <span class="svc__go" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a class="svc" href="contact.html?topic=support" data-cursor="Brief us">
+            <span class="svc__idx t-mono">06</span>
+            <canvas class="px-glyph svc__glyph" data-glyph="icon-pulse"></canvas>
+            <h3 class="svc__name">Maintenance <span class="amp">&amp;</span> Support</h3>
+            <p class="svc__desc">Updates, security patches, monitoring and technical support that keep everything running.</p>
+            <span class="svc__go" aria-hidden="true"></span>
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ============ LAB ============ -->
+<section class="lab section" id="lab">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="label" data-reveal><b>04</b> Lab</p>
+      <h2 class="t-display" data-split>Don't take our word for it. <em>Touch it.</em></h2>
+      <p class="section-head__aside t-body" data-reveal>Three small working models of the three things we build. Drag them, question them, pull the plug on them.</p>
+    </header>
+
+    <!-- ===== Exhibit A — responsive ===== -->
+    <article class="ex" id="ex-a" data-ex="responsive" aria-labelledby="ex-a-title">
+      <div class="ex-info">
+        <p class="ex-tag t-mono"><b>Exhibit A</b><span>Web design &amp; development</span></p>
+        <h3 class="ex-title t-title" id="ex-a-title">Responsive by <em>construction.</em></h3>
+        <p class="ex-desc t-body">One build that rearranges itself for whatever your customer is holding. This is a real layout reflowing in real time, not three screenshots.</p>
+        <p class="ex-hint t-mono"><i aria-hidden="true"></i>Drag either handle, or pick a device</p>
+        <a class="link link--on ex-link" href="contact.html?topic=web-design">Brief us on a website</a>
+      </div>
+
+      <div class="ex-demo frame">
+        <div class="ex-bar t-mono">
+          <span class="ex-bar-name"><i aria-hidden="true"></i>Viewport</span>
+          <div class="ex-seg" role="group" aria-label="Device presets">
+            <button type="button" class="ex-seg-btn" data-rsp-preset="390" aria-pressed="false">Phone</button>
+            <button type="button" class="ex-seg-btn" data-rsp-preset="768" aria-pressed="false">Tablet</button>
+            <button type="button" class="ex-seg-btn" data-rsp-preset="max" aria-pressed="true">Desktop</button>
+          </div>
+        </div>
+
+        <div class="ex-rsp-stage" data-rsp-stage>
+          <div class="ex-rsp-device" data-rsp-device>
+            <div class="ex-rsp-handle ex-rsp-handle--l" data-rsp-handle="-1" data-cursor="Drag" aria-hidden="true"><span class="ex-rsp-grip"></span></div>
+            <div class="ex-rsp-chrome t-mono" aria-hidden="true">
+              <span class="ex-rsp-dots"><i></i><i></i><i></i></span>
+              <span class="ex-rsp-url">your-business.example</span>
+            </div>
+            <div class="ex-rsp-view" data-rsp-view>
+              <!-- miniature placeholder site: decorative, laid out at the "virtual" width and scaled -->
+              <div class="ex-site" data-rsp-site aria-hidden="true" inert>
+                <div class="ex-site-nav">
+                  <span class="ex-site-logo"><i></i>Your business</span>
+                  <span class="ex-site-links"><span>Work</span><span>Services</span><span>About</span><span>Contact</span></span>
+                  <span class="ex-site-cta">Get in touch</span>
+                  <span class="ex-site-burger"><i></i><i></i></span>
+                </div>
+                <div class="ex-site-hero">
+                  <div class="ex-site-copy">
+                    <span class="ex-site-eyebrow">Placeholder — your content here</span>
+                    <span class="ex-site-h">Your business, on every screen.</span>
+                    <span class="ex-site-p">One layout that rearranges itself for whatever your customer happens to be holding.</span>
+                    <span class="ex-site-btns"><span class="ex-site-btn">See the work</span><span class="ex-site-btn ex-site-btn--ghost">Our services</span></span>
+                  </div>
+                  <div class="ex-site-art"><i></i><i></i><i></i></div>
+                </div>
+                <div class="ex-site-grid">
+                  <div class="ex-site-card"><b>01</b><span>Clear</span><em>Visitors see what you do in the first five seconds.</em></div>
+                  <div class="ex-site-card"><b>02</b><span>Quick</span><em>Pages that open before anyone thinks about leaving.</em></div>
+                  <div class="ex-site-card"><b>03</b><span>Findable</span><em>Structured so search engines can actually read it.</em></div>
+                </div>
+                <div class="ex-site-band">
+                  <span>One build.</span><span>Every screen.</span>
+                </div>
+                <div class="ex-site-foot"><span>Your business</span><span>Placeholder site</span></div>
+              </div>
+            </div>
+            <div class="ex-rsp-handle ex-rsp-handle--r" data-rsp-handle="1" data-cursor="Drag" role="slider" tabindex="0" aria-label="Viewport width" aria-orientation="horizontal" aria-valuemin="320" aria-valuemax="1280" aria-valuenow="1280" aria-valuetext="1280 pixels, Desktop"><span class="ex-rsp-grip"></span></div>
+          </div>
+        </div>
+
+        <dl class="ex-foot t-mono" aria-live="off">
+          <div><dt>Width</dt><dd><span data-rsp-w>1280</span> px</dd></div>
+          <div><dt>Breakpoint</dt><dd data-rsp-bp>Desktop</dd></div>
+          <div><dt>Layout</dt><dd data-rsp-cols>3 columns</dd></div>
+          <div class="ex-foot-end"><dt>Scale</dt><dd><span data-rsp-scale>100</span>%</dd></div>
+        </dl>
+        <p class="sr-only" aria-live="polite" data-rsp-live></p>
+      </div>
+    </article>
+
+    <!-- ===== Exhibit B — agent ===== -->
+    <article class="ex" id="ex-b" data-ex="agent" aria-labelledby="ex-b-title">
+      <div class="ex-info">
+        <p class="ex-tag t-mono"><b>Exhibit B</b><span>AI business automation</span></p>
+        <h3 class="ex-title t-title" id="ex-b-title">Agents that <em>answer.</em></h3>
+        <p class="ex-desc t-body">An agent reads each message, works out what the customer wants, checks the record and replies. And when a person should handle it, it knows to step aside.</p>
+        <p class="ex-hint t-mono"><i aria-hidden="true"></i>Pick a message, or write your own</p>
+        <a class="link link--on ex-link" href="contact.html?topic=ai-automation">Brief us on automation</a>
+      </div>
+
+      <div class="ex-demo frame">
+        <div class="ex-bar t-mono">
+          <span class="ex-bar-name"><i aria-hidden="true"></i>Support inbox</span>
+          <span class="ex-sim">Simulation — scripted demo, not a live model</span>
+        </div>
+
+        <div class="ex-agt" data-agt>
+          <div class="ex-agt-inbox">
+            <p class="ex-agt-h t-mono"><span>Inbox</span><span data-agt-waiting>5 waiting</span></p>
+            <ul class="ex-agt-list" data-agt-list></ul>
+            <form class="ex-agt-form" data-agt-form autocomplete="off">
+              <label class="sr-only" for="ex-agt-input">Write your own customer message</label>
+              <input class="ex-agt-input" id="ex-agt-input" type="text" maxlength="140" placeholder="Or write your own…" enterkeyhint="send" />
+              <button class="ex-agt-send t-mono" type="submit">Send</button>
+            </form>
+          </div>
+
+          <div class="ex-agt-run">
+            <ol class="ex-agt-steps" data-agt-steps aria-label="Agent pipeline">
+              <li data-step="read"><i aria-hidden="true"></i><span class="t-mono">Read</span><em data-note>Waiting</em></li>
+              <li data-step="classify"><i aria-hidden="true"></i><span class="t-mono">Classify</span><em data-note>—</em></li>
+              <li data-step="lookup"><i aria-hidden="true"></i><span class="t-mono">Look up</span><em data-note>—</em></li>
+              <li data-step="reply"><i aria-hidden="true"></i><span class="t-mono" data-step-label>Reply</span><em data-note>—</em></li>
+            </ol>
+
+            <div class="ex-agt-thread" data-agt-thread>
+              <div class="ex-agt-row ex-agt-row--in">
+                <span class="ex-agt-who t-mono" data-agt-channel>Customer</span>
+                <p class="ex-agt-bubble" data-agt-in>Pick a message from the inbox to watch the agent work.</p>
+              </div>
+              <div class="ex-agt-row ex-agt-row--out" data-agt-out-row>
+                <span class="ex-agt-who t-mono">Agent</span>
+                <p class="ex-agt-bubble" aria-hidden="true"><span data-agt-typed></span><i class="ex-agt-caret"></i></p>
+              </div>
+              <p class="ex-agt-outcome t-mono" data-agt-outcome><i aria-hidden="true"></i><span></span></p>
+            </div>
+            <p class="sr-only" aria-live="polite" data-agt-live></p>
+          </div>
+        </div>
+
+        <dl class="ex-foot t-mono">
+          <div><dt>Handled automatically</dt><dd data-agt-auto>00</dd></div>
+          <div><dt>Routed to a human</dt><dd data-agt-human>00</dd></div>
+          <div class="ex-foot-end"><dt>This session</dt><dd data-agt-total>0 messages</dd></div>
+        </dl>
+      </div>
+    </article>
+
+    <!-- ===== Exhibit C — infrastructure ===== -->
+    <article class="ex" id="ex-c" data-ex="infra" aria-labelledby="ex-c-title">
+      <div class="ex-info">
+        <p class="ex-tag t-mono"><b>Exhibit C</b><span>Hosting &amp; infrastructure</span></p>
+        <h3 class="ex-title t-title" id="ex-c-title">Infrastructure that <em>stays up.</em></h3>
+        <p class="ex-desc t-body">Three servers behind a load balancer. Ship a new release while visitors are mid-click, or cut the power to one. Then watch the dropped-request counter.</p>
+        <p class="ex-hint t-mono"><i aria-hidden="true"></i>Ship a release, or pull a plug</p>
+        <a class="link link--on ex-link" href="contact.html?topic=hosting">Brief us on hosting</a>
+      </div>
+
+      <div class="ex-demo frame">
+        <div class="ex-bar t-mono">
+          <span class="ex-bar-name"><i aria-hidden="true"></i>Production</span>
+          <span class="ex-sim">Simulation</span>
+        </div>
+
+        <div class="ex-inf" data-inf>
+          <div class="ex-inf-map" data-inf-map>
+            <canvas class="ex-inf-canvas" data-inf-canvas aria-hidden="true"></canvas>
+            <div class="ex-inf-src" data-inf-src>
+              <span class="ex-inf-crowd" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+              <span class="t-mono">Visitors</span>
+            </div>
+            <div class="ex-inf-lb" data-inf-lb>
+              <span class="t-mono">Load balancer</span>
+              <b class="t-mono" data-inf-pool>3 / 3 in rotation</b>
+            </div>
+            <ul class="ex-inf-nodes" aria-label="Servers">
+              <li class="ex-inf-node" data-inf-node="0" data-state="up">
+                <i class="ex-inf-led" aria-hidden="true"></i>
+                <span class="ex-inf-name t-mono">node-a</span>
+                <span class="ex-inf-ver t-mono" data-ver>v1.4</span>
+                <span class="ex-inf-state t-mono" data-state-text>Serving</span>
+                <span class="ex-inf-meter" aria-hidden="true"><i data-meter></i></span>
+              </li>
+              <li class="ex-inf-node" data-inf-node="1" data-state="up">
+                <i class="ex-inf-led" aria-hidden="true"></i>
+                <span class="ex-inf-name t-mono">node-b</span>
+                <span class="ex-inf-ver t-mono" data-ver>v1.4</span>
+                <span class="ex-inf-state t-mono" data-state-text>Serving</span>
+                <span class="ex-inf-meter" aria-hidden="true"><i data-meter></i></span>
+              </li>
+              <li class="ex-inf-node" data-inf-node="2" data-state="up">
+                <i class="ex-inf-led" aria-hidden="true"></i>
+                <span class="ex-inf-name t-mono">node-c</span>
+                <span class="ex-inf-ver t-mono" data-ver>v1.4</span>
+                <span class="ex-inf-state t-mono" data-state-text>Serving</span>
+                <span class="ex-inf-meter" aria-hidden="true"><i data-meter></i></span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="ex-inf-chart">
+            <p class="ex-inf-legend t-mono" aria-hidden="true"><span class="ex-inf-key ex-inf-key--req">Requests</span><span class="ex-inf-key ex-inf-key--lat">Latency <span data-inf-lat>40</span> ms</span></p>
+            <canvas class="ex-inf-spark" data-inf-spark aria-hidden="true"></canvas>
+          </div>
+
+          <div class="ex-inf-ctrl">
+            <div class="ex-inf-btns">
+              <button type="button" class="btn btn--primary ex-inf-btn" data-inf-ship>
+                <span class="btn__label" data-text="Ship a release"><span>Ship a release</span></span>
+              </button>
+              <button type="button" class="btn ex-inf-btn" data-inf-plug>
+                <span class="btn__label" data-text="Pull a plug"><span>Pull a plug</span></span>
+              </button>
+            </div>
+            <p class="ex-inf-status t-mono" data-inf-status aria-live="polite"><i aria-hidden="true"></i><span>All three nodes healthy. Traffic is flowing.</span></p>
+          </div>
+        </div>
+
+        <dl class="ex-foot t-mono">
+          <div><dt>Requests served</dt><dd data-inf-served>0</dd></div>
+          <div><dt>Dropped</dt><dd data-inf-dropped>0</dd></div>
+          <div class="ex-foot-end"><dt>Live release</dt><dd data-inf-release>v1.4</dd></div>
+        </dl>
+      </div>
+    </article>
+  </div>
+</section>
+
+  <!-- ============ SOLUTIONS ============ -->
+  <section class="solutions section" id="solutions">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="label" data-reveal><b>05</b> Solutions</p>
+        <h2 class="t-display" data-split>From first commit to <em>long-term partnership.</em></h2>
+        <p class="section-head__aside t-body" data-reveal>Four ways to work with the studio. Each one is a complete outcome, not a line item.</p>
+      </header>
+
+      <div class="sol-grid">
+        <a class="sol" href="contact.html?topic=digital-presence" data-spot data-cursor="Start">
+          <span class="sol__idx t-mono">[ 0x01 ]</span>
+          <canvas class="px-glyph sol__glyph" data-glyph="icon-web"></canvas>
+          <h3 class="sol__name">Digital<br />Presence</h3>
+          <p class="sol__desc">Complete web presence — design, development, hosting and maintenance for maximum impact.</p>
+          <span class="sol__go t-mono">Deploy <i></i></span>
+        </a>
+        <a class="sol" href="contact.html?topic=business-automation" data-spot data-cursor="Start">
+          <span class="sol__idx t-mono">[ 0x02 ]</span>
+          <canvas class="px-glyph sol__glyph" data-glyph="mind"></canvas>
+          <h3 class="sol__name">Business<br />Automation</h3>
+          <p class="sol__desc">Smart automation tools and AI-powered systems to streamline workflows and reduce manual work.</p>
+          <span class="sol__go t-mono">Deploy <i></i></span>
+        </a>
+        <a class="sol" href="contact.html?topic=technical-infrastructure" data-spot data-cursor="Start">
+          <span class="sol__idx t-mono">[ 0x03 ]</span>
+          <canvas class="px-glyph sol__glyph" data-glyph="icon-server"></canvas>
+          <h3 class="sol__name">Technical<br />Infrastructure</h3>
+          <p class="sol__desc">Robust server setup, secure hosting and reliable infrastructure to support your operations.</p>
+          <span class="sol__go t-mono">Deploy <i></i></span>
+        </a>
+        <a class="sol" href="contact.html?topic=ongoing-partnership" data-spot data-cursor="Start">
+          <span class="sol__idx t-mono">[ 0x04 ]</span>
+          <canvas class="px-glyph sol__glyph" data-glyph="icon-pulse"></canvas>
+          <h3 class="sol__name">Ongoing<br />Partnership</h3>
+          <p class="sol__desc">Long-term technology partnership with continuous support, updates and strategic guidance.</p>
+          <span class="sol__go t-mono">Deploy <i></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIGNAL (results + principles) ============ -->
+  <section class="signal section theme-bone" id="results" data-nav-theme="bone">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="label" data-reveal><b>06</b> Proven results</p>
+        <h2 class="t-display" data-split>Signal, <em>not noise.</em></h2>
+        <p class="section-head__aside t-body" data-reveal>No buzzwords, no theatre. Four numbers we're measured against, and four rules we work by.</p>
+      </header>
+
+      <dl class="stats">
+        <div class="stat">
+          <dd class="stat__num"><span class="odo" data-odo="50">50</span><sup>+</sup></dd>
+          <dt class="stat__label t-mono">Projects delivered</dt>
+        </div>
+        <div class="stat">
+          <dd class="stat__num"><span class="odo" data-odo="98">98</span><sup>%</sup></dd>
+          <dt class="stat__label t-mono">Client satisfaction</dt>
+        </div>
+        <div class="stat">
+          <dd class="stat__num"><span class="odo" data-odo="24">24</span><sup>/7</sup></dd>
+          <dt class="stat__label t-mono">Support available</dt>
+        </div>
+        <div class="stat">
+          <dd class="stat__num"><span class="odo" data-odo="300">300</span><sup>%</sup></dd>
+          <dt class="stat__label t-mono">Avg. performance gain</dt>
+        </div>
+      </dl>
+
+      <ol class="rules">
+        <li class="rule-row" data-reveal>
+          <span class="rule-row__n t-mono">Rule 01</span>
+          <h3 class="rule-row__t t-title">Engineered <em>to ship.</em></h3>
+          <p class="rule-row__d t-body">A plan is not a product. We scope what matters, build it properly and get it live.</p>
+        </li>
+        <li class="rule-row" data-reveal>
+          <span class="rule-row__n t-mono">Rule 02</span>
+          <h3 class="rule-row__t t-title">Built <em>to last.</em></h3>
+          <p class="rule-row__d t-body">Launch day is the beginning. Hosting, updates, security patches and monitoring keep it standing.</p>
+        </li>
+        <li class="rule-row" data-reveal>
+          <span class="rule-row__n t-mono">Rule 03</span>
+          <h3 class="rule-row__t t-title">Nothing it <em>doesn't need.</em></h3>
+          <p class="rule-row__d t-body">Every tool in your stack should earn its place. If it doesn't move the business, it doesn't go in.</p>
+        </li>
+        <li class="rule-row" data-reveal>
+          <span class="rule-row__n t-mono">Rule 04</span>
+          <h3 class="rule-row__t t-title">One <em>business day.</em></h3>
+          <p class="rule-row__d t-body">Tell us about your project and you'll hear back within one business day, with next steps.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
   <section class="cta" id="contact">
-    <div class="cta-inner">
-      <span class="section-tag mono" data-reveal>// ready when you are</span>
-      <h2 class="cta-title" data-split>Let's build what's next.</h2>
-      <p class="cta-sub" data-reveal>Tell us about your project. We'll respond within one business day.</p>
-      <div class="cta-actions" data-reveal>
-        <a href="contact.html" class="btn btn-primary btn-lg mono" data-magnetic>Start Your Project <span class="btn-arrow">→</span></a>
-        <a href="tel:3523251006" class="btn btn-ghost btn-lg mono" data-magnetic>352-325-1006</a>
+    <div class="cta__inner wrap">
+      <p class="label" data-reveal><b>07</b> Your move</p>
+      <h2 class="cta__title t-hero" aria-label="Let's build what's next.">
+        <span class="cta__line" aria-hidden="true">Let's build</span>
+        <span class="cta__line" aria-hidden="true"><em>what's next.</em></span>
+      </h2>
+      <p class="cta__sub t-lead" data-reveal>Tell us about your project. We'll respond within one business day.</p>
+      <div class="cta__actions" data-reveal>
+        <a class="btn btn--primary btn--lg" href="contact.html" data-magnetic>
+          <span class="btn__label" data-text="Start your project"><span>Start your project</span></span>
+          <svg class="btn__icon" viewBox="0 0 12 12" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true"><path d="M6 1h2v2H6zM8 3h2v2H8zM0 5h12v2H0zM8 7h2v2H8zM6 9h2v2H6z"/></svg>
+        </a>
+        <a class="btn btn--lg" href="tel:+13528580481" data-magnetic>
+          <span class="btn__label" data-text="352-858-0481"><span>352-858-0481</span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -310,41 +690,61 @@
 </main>
 
 <footer class="footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <span class="mono footer-logo">[Apply<span class="accent">Logics</span>]</span>
-      <p class="mono footer-tag">Full-Service Technology Company<br/>Gainesville, FL</p>
+  <div class="footer__top">
+    <div class="footer__lead">
+      <a class="brand" href="#top" aria-label="ApplyLogics Studio, back to top">
+        <svg class="brand__mark" viewBox="0 0 13 13" shape-rendering="crispEdges" aria-hidden="true">
+          <rect class="mark-bg" width="13" height="13" rx="2.4" shape-rendering="geometricPrecision" />
+          <path class="mark-fg" d="M6 2h1v1H6zM5 3h3v1H5zM5 4h1v1H5zM7 4h1v1H7zM4 5h2v1H4zM7 5h2v1H7zM4 6h1v1H4zM8 6h1v1H8zM3 7h7v1H3zM3 8h2v1H3zM8 8h2v1H8zM2 9h3v2H2zM8 9h3v2H8z" />
+        </svg>
+        <span class="brand__name">ApplyLogics<em>Studio</em></span>
+      </a>
+      <p class="t-body">A design and engineering studio for businesses that intend to be around tomorrow. Websites, AI automation and infrastructure, built in Ocala, Florida.</p>
     </div>
-    <div class="footer-col">
-      <h4 class="mono">// services</h4>
-      <a href="contact.html?topic=web-design">Web Design &amp; Development</a>
-      <a href="contact.html?topic=ai-automation">AI Business Automation</a>
-      <a href="contact.html?topic=hosting">Hosting &amp; Server Setup</a>
-      <a href="contact.html?topic=custom-dev">Custom Development</a>
+    <div class="footer__col">
+      <h3>Services</h3>
+      <ul>
+        <li><a class="link" href="contact.html?topic=web-design">Web Design &amp; Development</a></li>
+        <li><a class="link" href="contact.html?topic=ai-automation">AI Business Automation</a></li>
+        <li><a class="link" href="contact.html?topic=hosting">Hosting &amp; Server Setup</a></li>
+        <li><a class="link" href="contact.html?topic=consulting">Technology Consulting</a></li>
+        <li><a class="link" href="contact.html?topic=custom-dev">Custom Development</a></li>
+        <li><a class="link" href="contact.html?topic=support">Maintenance &amp; Support</a></li>
+      </ul>
     </div>
-    <div class="footer-col">
-      <h4 class="mono">// solutions</h4>
-      <a href="contact.html?topic=digital-presence">Digital Presence</a>
-      <a href="contact.html?topic=business-automation">Business Automation</a>
-      <a href="contact.html?topic=technical-infrastructure">Technical Infrastructure</a>
-      <a href="contact.html?topic=ongoing-partnership">Ongoing Partnership</a>
+    <div class="footer__col">
+      <h3>Solutions</h3>
+      <ul>
+        <li><a class="link" href="contact.html?topic=digital-presence">Digital Presence</a></li>
+        <li><a class="link" href="contact.html?topic=business-automation">Business Automation</a></li>
+        <li><a class="link" href="contact.html?topic=technical-infrastructure">Technical Infrastructure</a></li>
+        <li><a class="link" href="contact.html?topic=ongoing-partnership">Ongoing Partnership</a></li>
+        <li><a class="link" href="https://ogtheproject.com" target="_blank" rel="noopener">OG The Project ↗</a></li>
+      </ul>
     </div>
-    <div class="footer-col">
-      <h4 class="mono">// contact</h4>
-      <a href="mailto:hello@applylogics.com">hello@applylogics.com</a>
-      <a href="tel:3523251006">352-325-1006</a>
-      <a href="https://ogtheproject.com" target="_blank" rel="noopener">OG The Project ↗</a>
+    <div class="footer__col footer__col--contact">
+      <h3>Contact</h3>
+      <ul>
+        <li><a class="link" href="mailto:hello@applylogics.com">hello@applylogics.com</a></li>
+        <li><a class="link" href="tel:+13528580481">352-858-0481</a></li>
+        <li><span>Ocala, Florida</span></li>
+      </ul>
     </div>
   </div>
-  <div class="footer-bottom mono">
-    <span>© 2026 ApplyLogics Inc. All rights reserved.</span>
-    <span class="footer-status"><span class="tag-dot"></span>all systems operational</span>
+
+  <p class="footer__word" aria-hidden="true"><span>ApplyLogics</span><em>Studio</em></p>
+
+  <div class="footer__bottom">
+    <span>© 2026 ApplyLogics Studio. All rights reserved.</span>
+    <span><i class="live-dot"></i>Ocala, FL&ensp;<span data-clock>--:--:--</span>&ensp;ET</span>
+    <a href="#top">Back to top ↑</a>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="main.js?v=6"></script>
+<script defer src="js/vendor/gsap.min.js"></script>
+<script defer src="js/vendor/ScrollTrigger.min.js"></script>
+<script defer src="js/vendor/SplitText.min.js"></script>
+<script defer src="js/vendor/lenis.min.js"></script>
+<script type="module" src="js/home.js?v=7"></script>
 </body>
 </html>
