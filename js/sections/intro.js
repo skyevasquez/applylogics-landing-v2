@@ -13,7 +13,9 @@ const TOOLS = [
 
 /* Counts from 10,000 BC to the current year, naming each era's tool as it
    passes, then hands over to the pixel wipe. */
-export function runLoader() {
+/* `ready` resolves once the page underneath is built; the counter runs right
+   away but holds before its exit until then. */
+export function runLoader(ready = Promise.resolve()) {
   const el = $("#loader");
   if (!el) return reveal();
   if (!motion) {
@@ -63,6 +65,10 @@ export function runLoader() {
         pct.textContent = String(Math.round(state.p * 100)).padStart(3, "0");
       },
     })
+      .add(() => {
+        tl.pause();
+        ready.then(() => tl.resume(), () => tl.resume());
+      })
       .to({}, { duration: seen ? 0.15 : 0.4 })
       .to(".loader__num, .loader__suffix", { yPercent: -115, duration: 0.7, ease: "power4.in", stagger: 0.05 })
       .to(".loader__row", { opacity: 0, duration: 0.3 }, "<0.2")

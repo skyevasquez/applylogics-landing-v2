@@ -121,6 +121,20 @@ async function boot() {
   initPixelGlyphs();
   const arriving = arrivedViaTransition();
 
+  /* Settle the intro before any awaits: the overlay is on screen from first
+     paint, so either run (and scroll-lock) it now or take it down now. */
+  const loader = $("#loader");
+  let markReady;
+  const ready = new Promise((r) => (markReady = r));
+  let intro;
+  if (motion && !arriving && !location.hash) {
+    intro = runLoader(ready);
+  } else {
+    if (loader) loader.classList.add("is-done");
+    /* reduced motion: nothing to cover; transitions and deep links stay covered until built */
+    intro = motion ? ready.then(() => reveal()) : reveal();
+  }
+
   await fontsReady;
 
   /* order matters: ScrollTriggers are created top-to-bottom so pin spacing adds up */
@@ -162,20 +176,9 @@ async function boot() {
 
   if (hasGSAP) ScrollTrigger.refresh();
 
-  const loader = $("#loader");
-  if (motion) {
-    if (arriving || location.hash) {
-      /* arriving from another page or a deep link: skip the counter */
-      if (loader) loader.classList.add("is-done");
-      await reveal();
-    } else {
-      await runLoader();
-    }
-    hero.play();
-  } else {
-    if (loader) loader.classList.add("is-done");
-    await reveal();
-  }
+  markReady();
+  await intro;
+  if (motion) hero.play();
   introDone = true;
   if (director) director.start();
 
