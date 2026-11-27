@@ -1,0 +1,626 @@
+/* ==========================================================================
+   ApplyLogics Studio — contact / project brief
+   Tokens come from base.css. Classes here are prefixed contact- / brief-.
+   ========================================================================== */
+
+/* ---------- Intro states (JS animates them in; .no-boot is the failsafe) ---------- */
+html.js:not(.is-ready):not(.no-boot) .contact-title .line-in {
+  transform: translateY(115%);
+}
+html.js:not(.is-ready):not(.no-boot) [data-in] {
+  opacity: 0;
+}
+
+/* ---------- Page frame ---------- */
+.contact {
+  position: relative;
+  padding: calc(var(--nav-h) + clamp(2rem, 6vw, 5.5rem)) var(--gutter) clamp(4rem, 9vw, 8rem);
+}
+/* a faint pixel grid behind the page, fading out toward the form */
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: clamp(2.5rem, 5.6vw, 5rem) clamp(2.5rem, 5.6vw, 5rem);
+  opacity: 0.45;
+  -webkit-mask-image: radial-gradient(120% 70% at 0% 0%, #000 0%, transparent 62%);
+  mask-image: radial-gradient(120% 70% at 0% 0%, #000 0%, transparent 62%);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(3rem, 8vw, 5rem) clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+@media (min-width: 64rem) {
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .contact-intro {
+    position: sticky;
+    top: calc(var(--nav-h) + 1.5rem);
+  }
+}
+
+/* ---------- Left column ---------- */
+.contact-title {
+  margin-top: clamp(1.5rem, 3vw, 2.75rem);
+  font-size: clamp(2.9rem, 12.6vw, 6.25rem);
+}
+.contact-title .line-mask {
+  /* room for the italic's descender and overhang inside the mask */
+  padding: 0.04em 0.06em 0.2em 0;
+  margin-bottom: -0.2em;
+}
+.contact-title .line-in {
+  display: block;
+  will-change: transform;
+}
+.contact-title em {
+  display: inline-block;
+  line-height: 0.9;
+  padding-right: 0.04em;
+}
+@media (min-width: 64rem) {
+  .contact-title {
+    font-size: clamp(3.5rem, 6.05vw, 8.25rem);
+  }
+}
+.contact-lead {
+  max-width: 30rem;
+  margin-top: clamp(1.75rem, 3vw, 2.75rem);
+  color: var(--bone-2);
+}
+
+.contact-channels {
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+  border-bottom: 1px solid var(--line);
+}
+.contact-channel {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, 0.42fr) minmax(0, 1fr);
+  align-items: baseline;
+  gap: 1rem;
+  min-height: 3.5rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--line);
+}
+.contact-channel dt {
+  color: var(--bone-3);
+}
+.contact-channel dd {
+  font-size: clamp(1.0625rem, 1.5vw, 1.4375rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.contact-channel dd a {
+  /* comfortable tap target without changing the row rhythm */
+  padding-block: 0.8rem;
+  margin-block: -0.8rem;
+}
+.contact-channel dd a.link::after {
+  bottom: 0.62rem;
+}
+.contact-time {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.04em !important;
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+}
+
+/* ---------- The brief (form panel) ---------- */
+.brief {
+  --frame-c: var(--signal);
+  container: brief / inline-size;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+}
+.brief-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.25rem;
+  padding: 0.75rem clamp(1.1rem, 2.6vw, 2.25rem);
+  border-bottom: 1px solid var(--line);
+  color: var(--bone-2);
+}
+.brief-bar__title {
+  font: inherit;
+  letter-spacing: inherit;
+  color: var(--bone);
+}
+.brief-bar__title {
+  white-space: nowrap;
+}
+.brief-bar__sub span {
+  color: var(--bone-3);
+  margin-inline: 0.35em;
+}
+@container brief (max-width: 24rem) {
+  .brief-bar__sub {
+    display: none;
+  }
+}
+/* completion meter: twelve pixels that light as the required fields are filled */
+.brief-meter {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+.brief-meter__cells {
+  display: grid;
+  grid-template-columns: repeat(12, 6px);
+  gap: 3px;
+}
+.brief-meter__cells i {
+  width: 6px;
+  height: 6px;
+  background: var(--line-2);
+  transition: background-color 0.2s linear, transform 0.4s var(--ease-out);
+}
+.brief-meter__cells i.is-on {
+  background: var(--signal);
+}
+.brief-meter__cells i.is-pop {
+  transform: scale(1.7);
+}
+.brief-meter__count b {
+  font-weight: 500;
+  color: var(--bone);
+}
+.brief-meter.is-complete .brief-meter__count,
+.brief-meter.is-complete .brief-meter__count b {
+  color: var(--signal);
+}
+@media (max-width: 26rem) {
+  .brief-meter__cells {
+    grid-template-columns: repeat(12, 5px);
+    gap: 2px;
+  }
+  .brief-meter__cells i {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+.brief-body {
+  padding: 0 clamp(1.1rem, 2.6vw, 2.25rem) clamp(1.5rem, 2.6vw, 2.25rem);
+}
+.brief-section {
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+.brief-section + .brief-section {
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--line);
+}
+.brief-step {
+  display: flex;
+  align-items: center;
+  gap: 0.9em;
+  margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
+  color: var(--bone-2);
+}
+.brief-step span {
+  color: var(--signal);
+}
+
+/* ----- fields ----- */
+.brief-field {
+  min-width: 0;
+  margin-bottom: 1.5rem;
+}
+.brief-section > .brief-field:last-child,
+.brief-section > .brief-row:last-child > .brief-field:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 36rem) {
+  .brief-section > .brief-row:last-child > .brief-field {
+    margin-bottom: 0;
+  }
+}
+.brief-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: clamp(1.25rem, 2.4vw, 2rem);
+}
+@media (min-width: 36rem) {
+  .brief-row {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+}
+.brief-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  width: 100%;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: var(--t-label);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--bone-2);
+}
+/* each label carries a pixel: hollow → lit on focus → solid once the field is good */
+.brief-label::before {
+  content: "";
+  flex: none;
+  width: 0.6em;
+  height: 0.6em;
+  box-shadow: inset 0 0 0 1px var(--bone-3);
+  transition: background-color 0.25s linear, box-shadow 0.25s linear, transform 0.45s var(--ease-out);
+}
+.brief-field:focus-within .brief-label,
+.brief-fieldset:focus-within > .brief-label {
+  color: var(--bone);
+}
+.brief-field:focus-within .brief-label::before,
+.brief-fieldset:focus-within > .brief-label::before {
+  box-shadow: inset 0 0 0 1px var(--signal);
+  transform: rotate(45deg);
+}
+.brief-field.is-valid .brief-label::before,
+.brief-fieldset.is-valid > .brief-label::before {
+  background: var(--signal);
+  box-shadow: inset 0 0 0 1px var(--signal);
+  transform: none;
+}
+.brief-field.is-invalid .brief-label::before {
+  background: var(--era-fire);
+  box-shadow: inset 0 0 0 1px var(--era-fire);
+}
+.brief-tag {
+  margin-left: auto;
+  color: var(--bone-3);
+  font-size: 0.625rem;
+}
+.brief-tag:not(.brief-tag--opt)::before {
+  content: "* ";
+  color: var(--signal);
+}
+
+.brief-control {
+  position: relative;
+}
+.brief-control::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--signal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out);
+  pointer-events: none;
+}
+.brief-control:focus-within::after {
+  transform: scaleX(1);
+}
+.brief-field.is-invalid .brief-control::after {
+  background: var(--era-fire);
+  transform: scaleX(1);
+}
+.brief-input {
+  display: block;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.8rem 0 0.75rem;
+  border: 0;
+  border-bottom: 1px solid var(--line-2);
+  border-radius: 0;
+  background: transparent;
+  color: var(--bone);
+  font-family: var(--font-display);
+  font-size: clamp(1.0625rem, 1.35vw, 1.3125rem);
+  font-weight: 450;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  caret-color: var(--signal);
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color 0.3s linear;
+}
+.brief-input::placeholder {
+  color: var(--bone-3);
+  opacity: 0.75;
+}
+.brief-input:hover {
+  border-bottom-color: var(--bone-3);
+}
+.brief-input:focus,
+.brief-input:focus-visible {
+  outline: none; /* the 2px signal underline + label pixel are the focus indicator */
+}
+.brief-input:-webkit-autofill {
+  -webkit-text-fill-color: var(--bone);
+  box-shadow: inset 0 0 0 100px var(--ink-2);
+  caret-color: var(--signal);
+}
+.brief-input--area {
+  min-height: 8rem;
+  resize: none;
+  overflow: hidden;
+  line-height: 1.5;
+}
+.brief-error {
+  display: none;
+  align-items: flex-start;
+  gap: 0.6em;
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #ff8a5c; /* era-fire, lifted for AA on ink-2 */
+}
+.brief-error::before {
+  content: "!";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.35em;
+  height: 1.35em;
+  background: var(--era-fire);
+  color: var(--ink);
+  font-weight: 800;
+  line-height: 1;
+}
+.brief-field.is-invalid .brief-error {
+  display: flex;
+}
+
+/* ----- service chips ----- */
+.brief-fieldset {
+  min-width: 0;
+  margin: 0 0 1.75rem;
+  padding: 0;
+  border: 0;
+}
+.brief-service {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+.brief-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-content: flex-start;
+}
+.brief-chip {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+}
+.brief-chip input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.brief-chip > span {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--line-2);
+  color: var(--bone);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+}
+.brief-chip > span::before {
+  content: "";
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  box-shadow: inset 0 0 0 1px var(--bone-3);
+  transition: background-color 0.25s linear, box-shadow 0.25s linear;
+}
+.brief-chip > span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--signal);
+  transform: translateY(101%);
+  transition: transform 0.45s var(--ease-out);
+}
+@media (hover: hover) {
+  .brief-chip:hover > span {
+    border-color: var(--bone);
+  }
+}
+.brief-chip input:checked + span {
+  color: var(--signal-ink);
+  border-color: var(--signal);
+}
+.brief-chip input:checked + span::before {
+  background: var(--signal-ink);
+  box-shadow: none;
+}
+.brief-chip input:checked + span::after {
+  transform: none;
+}
+.brief-chip input:focus-visible + span {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+.brief-glyph {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  order: -1;
+  padding: 0.9rem 1.1rem;
+  border: 1px dashed var(--line-2);
+  color: var(--signal);
+}
+.brief-glyph__canvas {
+  width: 3.5rem;
+  flex: none;
+}
+.brief-glyph__text {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.brief-glyph__kicker {
+  color: var(--bone-3);
+  font-size: 0.625rem;
+}
+.brief-glyph__label {
+  color: var(--bone-2);
+}
+.brief-glyph.is-set .brief-glyph__label {
+  color: var(--bone);
+}
+/* narrow form (phones): chips and buttons become full-width rows */
+@container brief (max-width: 28rem) {
+  .brief-chips {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .brief-chip > span {
+    width: 100%;
+  }
+  .brief-actions > .btn {
+    flex: 1 1 100%;
+  }
+}
+/* wide form (tablet, large desktop): the glyph stands beside the chips */
+@container brief (min-width: 46rem) {
+  .brief-service {
+    grid-template-columns: minmax(0, 1fr) 11rem;
+    align-items: stretch;
+  }
+  .brief-glyph {
+    order: 0;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 1.25rem 0.9rem;
+  }
+  .brief-glyph__canvas {
+    width: 6rem;
+  }
+}
+
+/* ----- send ----- */
+.brief-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.brief-submit {
+  flex: 1 1 14rem;
+}
+.brief-copy {
+  flex: 0 1 auto;
+}
+.brief-submit.is-shake {
+  animation: brief-shake 0.4s steps(4, jump-none);
+}
+@keyframes brief-shake {
+  25% { translate: -6px 0; }
+  50% { translate: 6px 0; }
+  75% { translate: -3px 0; }
+}
+.brief-status {
+  display: none;
+  align-items: flex-start;
+  gap: 0.75em;
+  margin-top: 1.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line-2);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--bone);
+}
+.brief-status::before {
+  content: "";
+  flex: none;
+  width: 0.6em;
+  height: 0.6em;
+  margin-top: 0.5em;
+  background: var(--signal);
+}
+.brief-status.is-shown {
+  display: flex;
+}
+.brief-status.is-ok {
+  border-color: var(--signal);
+}
+.brief-status.is-error {
+  border-color: var(--era-fire);
+}
+.brief-status.is-error::before {
+  background: var(--era-fire);
+}
+.brief-note {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--bone-2);
+  text-wrap: pretty;
+}
+.brief-note strong {
+  font-weight: 600;
+  color: var(--bone);
+}
+.brief-note a {
+  color: var(--bone);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  white-space: nowrap;
+  transition: color 0.25s linear;
+}
+.brief-note a:hover {
+  color: var(--signal);
+}
+
+/* ---------- Slim footer ---------- */
+.contact-footer {
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+.contact-footer .footer__bottom {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+.contact-footer .brand {
+  padding-block: 0.5rem;
+}
+.contact-footer .footer__bottom a {
+  display: inline-block;
+  padding-block: 1rem;
+  margin-block: -1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brief-submit.is-shake {
+    animation: none;
+  }
+}
